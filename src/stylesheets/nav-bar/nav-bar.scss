@@ -1,5 +1,49 @@
-.nav-bar {
+/* Navbar.css */
+.navbar {
   display: flex;
-  background-color: #ccc;
-  padding-left: 20px;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #e8c7e9;
+  padding: 1rem;
+  color: #fff;
+}
+
+.navbar__search {
+  flex: 1; /* Hacer que el buscador ocupe el espacio restante */
+  
+}
+
+.navbar__search-input {
+  width: 70%; /* Ancho completo del contenedor */
+  padding: 0.5rem;
+  border: none;
+  border-radius: 100px;
+  background-color: #feebff;
+}
+
+.navbar__logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-right: 1rem; /* Separación entre el buscador y el logo */
+}
+
+.navbar__links {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin-left: auto; /* Empuja los links al final de la barra */
+}
+
+.navbar__item {
+  margin: 0 1rem;
+}
+
+.navbar__link {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.navbar__link:hover {
+  color: #ddd;
 }

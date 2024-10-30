@@ -1,28 +1,21 @@
-import React from 'react'
-import { NavLink } from 'react-router-dom'
+// Navbar.js
+import React from 'react';
+import '../stylesheets/index.scss';
 
-export const NavBar = () => {
-  const navLinkClass = ({ isActive }) => {
-    const classes = ['nav-bar__link']
-    if (isActive) classes.push('nav-bar__link--active')
-    return classes.join(' ')
-  }
+function Navbar() {
   return (
-    <nav className='nav-bar'>
-      <NavLink
-        className={navLinkClass}
-        to='/'
-      >
-        Inicio
-      </NavLink>
-      <NavLink
-        className={navLinkClass}
-        to='/lightbulb'
-      >
-        Ampolleta
-      </NavLink>
+    <nav className="navbar">
+      
+      <div className="navbar__logo" href="/">MiSitio </div>
+      <div className="navbar__search">
+        <input 
+          type="text" 
+          className="navbar__search-input" 
+          placeholder="Buscar por dirección o por tipo de ayuda" 
+        />
+      </div>
     </nav>
-  )
+  );
 }
- 
-export default NavBar
+
+export default Navbar;

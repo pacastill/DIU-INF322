@@ -1,21 +1,19 @@
 import React from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-
-import HomePage from '../pages/HomePage'
 import LightbulbPage from '../pages/lightbulb_page'
-
 import NavBar from '../components/nav_bar'
+import WelcomeScreen from '../pages/welcome_screen'
 
 const Layout = () => {
   return (
     <BrowserRouter>
-      <div className='layout'>
-        <h1 className='layout__title'>Interfaz energética</h1>
+      <div className="min-h-screen items-center bg-gray-100">
         <NavBar />
-        <div className='layout__page'>
+        <div className="container items-center mx-auto px-4 py-8">
           <Routes>
-            <Route path='/' element={<HomePage />} />
-            <Route path='/lightbulb' element={<LightbulbPage />} />
+            <Route path="/" element={<WelcomeScreen />} />
+
+            <Route path="/lightbulb" element={<LightbulbPage />} />
           </Routes>
         </div>
       </div>
