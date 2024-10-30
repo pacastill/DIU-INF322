@@ -21,6 +21,8 @@ export const NavBar = () => {
       >
         Ampolleta
       </NavLink>
+      
+      
     </nav>
   )
 }

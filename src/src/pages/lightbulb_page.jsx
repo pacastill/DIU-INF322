@@ -3,7 +3,6 @@ import React, { useState } from 'react'
 import LightBulbOn from '../assets/light-on.png'
 import LightBulbOff from '../assets/light-off.png'
 
-
 export const LightbulbPage = () => {
   const [isOn, setIsOn] = useState(false);
 
