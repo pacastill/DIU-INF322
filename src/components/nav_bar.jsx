@@ -35,6 +35,12 @@ export const NavBar = () => {
       >
         Detalle
       </NavLink>
+      <NavLink
+        className={navLinkClass}
+        to='/crear_peticion'
+      >
+        Crear Petición
+      </NavLink>
 
       
       
