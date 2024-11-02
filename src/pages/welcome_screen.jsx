@@ -31,7 +31,7 @@ const WelcomeScreen = () => {
         </button>
       </div>
       <button
-        onClick={() => navigate('/home')}//Este ya no sirve es el que estaba de ejemplo
+        onClick={() => navigate('/home_page')}//Este ya no sirve es el que estaba de ejemplo
         className="px-6 py-2 bg-gray-800 text-white rounded-full hover:bg-gray-700"
       >
         Ingresar

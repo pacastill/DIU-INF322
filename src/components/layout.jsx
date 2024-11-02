@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import LightbulbPage from '../pages/lightbulb_page'
 import NavBar from '../components/nav_bar'
 import WelcomeScreen from '../pages/welcome_screen'
+import CaratulasPage from '../pages/caratulas_page'
 
 const Layout = () => {
   return (
@@ -14,6 +15,8 @@ const Layout = () => {
             <Route path="/" element={<WelcomeScreen />} />
 
             <Route path="/lightbulb" element={<LightbulbPage />} />
+
+            <Route path="/caratulas" element={<CaratulasPage />} />
           </Routes>
         </div>
       </div>

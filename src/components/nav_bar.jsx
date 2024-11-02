@@ -21,6 +21,13 @@ export const NavBar = () => {
       >
         Ampolleta
       </NavLink>
+
+      <NavLink
+        className={navLinkClass}
+        to='/caratulas'
+      >
+        Caratulas
+      </NavLink>
       
       
     </nav>

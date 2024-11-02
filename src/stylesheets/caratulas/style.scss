@@ -1,0 +1,151 @@
+/*Estoy tratando de q se muestre en pantalla primero y dsp muevo el css a la carpeta de estilos miau*/
+body {
+  background: transparent; 
+  /*padding: 0 0px;*/
+  margin: 0;
+  /*height: 100vh;*/
+  /*display: flex;*/
+  justify-content: center;
+  align-items: center;
+}
+  
+.App {
+  color: #72a24d;
+}
+
+/* Caratulas */
+.card-container {
+  max-width: 300px;
+  background-color: #f3e8ff;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  font-family: Arial, sans-serif;
+  
+  .card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+
+    .card-avatar {
+      width: 32px;
+      height: 32px;
+      background-color: #6b46c1;
+      color: white;
+      font-weight: bold;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .card-title {
+      color: #333;
+      font-weight: 500;
+      margin-left: 8px;
+    }
+
+    /* Botón 3 puntitos */
+    .card-menu {
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+    
+    .menu-icon {
+      width: 25px;
+      height: 25px;
+      color: #353535;
+    } 
+  }
+
+  /* Imagen */
+  .card-image-placeholder {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    background-color: #d1d5db;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px; /* margen entre la imagen y el título de la carátula */
+  }
+
+  .card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+
+  .shape-icon {
+    width: 64px;
+    height: 64px;
+    color: #9ca3af;
+  }
+
+  /*Contenido */
+  .card-content {
+    margin-bottom: 16px;
+  }
+  
+  .card-task-title {
+    color: #333;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+  
+  .card-status {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 8px;
+  }
+  
+  .card-description {
+    font-size: 14px;
+    color: #4b5563;
+  }
+
+  /* Boton */
+  .card-button {
+    width: 100%;
+    padding: 8px 0;
+    background-color: #6b46c1;
+    color: white;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .card-button:hover {
+    background-color: #553c9a;
+  }
+}
+
+/* Cuadrícula de caratulas */
+.caratulas-page {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  padding: 16px;
+  margin-left: 30px; /*me molesta tener q ponerle un borde solo a la izquierda pero ya qué, al otra opción dejaba la pura embarrada con la navbar*/
+}
+
+/*Ajuste en otros tamaños de pantalla :) Se puede borrar pero lo encontré bacán jsjsjs */
+@media (max-width: 1024px) {
+  .catalog-container {
+    grid-template-columns: repeat(2, 1fr); /* 2 columnas en pantallas medianas */
+  }
+}
+@media (max-width: 640px) {
+  .catalog-container {
+    grid-template-columns: 1fr; /* 1 columna en pantallas pequeñas */
+  }
+}
