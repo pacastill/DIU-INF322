@@ -5,6 +5,8 @@ import NavBar from '../components/nav_bar'
 import WelcomeScreen from '../pages/welcome_screen'
 import CaratulasPage from '../pages/caratulas_page'
 
+import Detalle from '../components/detalle'
+
 const Layout = () => {
   return (
     <BrowserRouter>
@@ -17,6 +19,8 @@ const Layout = () => {
             <Route path="/lightbulb" element={<LightbulbPage />} />
 
             <Route path="/caratulas" element={<CaratulasPage />} />
+
+            <Route path="/detalle" element={<Detalle />} />
           </Routes>
         </div>
       </div>

@@ -28,6 +28,14 @@ export const NavBar = () => {
       >
         Caratulas
       </NavLink>
+
+      <NavLink
+        className={navLinkClass}
+        to='/detalle'
+      >
+        Detalle
+      </NavLink>
+
       
       
     </nav>

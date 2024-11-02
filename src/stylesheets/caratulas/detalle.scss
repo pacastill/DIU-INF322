@@ -1,0 +1,132 @@
+.card-detail {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #f7f7f7;
+  }
+  
+  .card-detail-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;    
+    .icon-wrapper {
+      width: 40px;
+      height: 40px;
+      background-color: #8a73ab;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      font-size: 18px;
+      font-weight: bold;
+      margin-right: 10px;
+    }
+    .location-name {
+      flex-grow: 1;
+      font-size: 1.2em;
+      font-weight: bold;
+    }
+    .menu-button {
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+  }
+  
+  .progress-bar-container {
+    flex-grow: 1;
+    margin: 0 20px;
+    height: 2px;
+    background-color: #d0c7e2;
+    position: relative;
+
+    .progress-bar {
+      width: 50%;
+      height: 100%;
+      background-color: #8a73ab;
+      position: absolute;
+      top: 0;
+    }
+  }
+
+  .card-content {
+    font-size: 16px;
+    .card-title {
+      font-size: 1.5em;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    .card-subtitle {
+      font-weight: 500;
+      color: gray;
+      margin-bottom: 15px;
+    }
+    .card-instructions {
+      font-weight: bold;
+    }
+    .volunteer-requirements {
+      list-style-type: disc;
+      padding-left: 20px;
+      margin-bottom: 15px;
+    }
+    .card-address {
+      font-style: italic;
+      margin-bottom: 20px;
+    }
+  }
+    
+  .volunteer-progress {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+
+    .worker-icon {
+      width: 40px;
+      margin-right: 10px;
+    }
+    .progress-text {
+      font-size: 1em;
+      font-weight: bold;
+      margin-right: 10px;
+    }
+    .progress-bar {
+      flex-grow: 1;
+      height: 5px;
+      background-color: #e0e0e0;
+      position: relative;
+      border-radius: 5px;
+    }
+    .progress-bar-fill {
+      width: 75%; /* Ajustar porcentaje para la cantidad de voluntarios */
+      height: 100%;
+      background-color: #8a73ab;
+      border-radius: 5px;
+    }
+  }
+  
+  .action-buttons {
+    display: flex;
+    justify-content: space-between;
+
+    .back-button, .help-button{
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1em;
+    }
+
+    .back-button {
+      background-color: #ccc;
+      color: #333;
+    }
+    
+    .help-button {
+      background-color: #8a73ab;
+      color: white;
+    }
+  }

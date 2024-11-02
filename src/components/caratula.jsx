@@ -1,6 +1,7 @@
 import React from 'react';
 
 import '../stylesheets/caratulas/style.scss';
+import '../stylesheets/caratulas/imagen.scss';
 
 const Caratula = ({ title, location, capacity, description, imageUrl }) => {
   return (
@@ -16,7 +17,7 @@ const Caratula = ({ title, location, capacity, description, imageUrl }) => {
         </button>
       </div>
 
-    {/* Image Section */}
+    {/* Imagen */}
       <div className="card-image-placeholder">
         {imageUrl ? (
           <img src={imageUrl} alt={title} className="card-image" />
@@ -29,14 +30,14 @@ const Caratula = ({ title, location, capacity, description, imageUrl }) => {
         )}
       </div>
 
-      {/* Content */}
+      {/* Contenido */}
       <div className="card-content">
         <h3 className="card-task-title">{title}</h3>
         <p className="card-status">{capacity}</p>
         <p className="card-description">{description}</p>
       </div>
 
-      {/* Action Button */}
+      {/* Botón Ver más */}
       <button className="card-button">Ver más</button>
     </div>
   );
