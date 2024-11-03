@@ -23,8 +23,8 @@ const WelcomeScreen = () => {
           Voluntariado
         </button>
         <button
-          onClick={() => handleOrganizationSelect('./pages/local')}//Esta igual
-          className="px-6 py-2 bg-white text-black rounded-r-full border border-gray-300 hover:bg-gray-100"
+          onClick={() => navigate('/caratulas')}//Esta está funcional pero en verdad no se va a ocupar este como tal jaja
+          className= 'submit-button'
         >
           Local
         </button>

@@ -3,7 +3,7 @@ import '../stylesheets/index.scss';
 
 const ActualizarPeticion = () => {
     return (
-        <div className='container_form_der'>
+        <div className='container_form'>
             <form className='formulario'>
                 <label style={{fontWeight : 'bold'}}>Nombre encargado</label>        
                 <input type="text" placeholder="Ingrese nombre del encargado" />
@@ -42,6 +42,10 @@ const ActualizarPeticion = () => {
                     <button type="submit" className="submit-button">Enviar ayuda</button>
                 </div>
             </form>
+            <div className="map-container">
+                
+                <img src="path_to_your_map_image.png" alt="Mapa" />
+            </div>
         </div>
     );
 };

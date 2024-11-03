@@ -38,7 +38,7 @@ const Caratula = ({ title, location, capacity, description, imageUrl }) => {
       </div>
 
       {/* Botón Ver más */}
-      <button className="card-button">Ver más</button>
+      <button className="card-button" >Ver más</button>
     </div>
   );
 };
