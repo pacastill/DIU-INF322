@@ -6,18 +6,21 @@ const DatosPruebaContexto = createContext();
 // Datos globales
 const DatosPrueba = [
     {
-        title: "Ayuda con escombros",
-        location: "Población Vergara",
-        capacity: "0/10",
-        description: "Gente joven, traer sus propios materiales y herramientas",
+      id: 1,
+      title: "Ayuda con escombros",
+      location: "Población Vergara",
+      capacity: "0/10",
+      description: "Gente joven, traer sus propios materiales y herramientas",
     },
     {
-        title: "Recolección de alimentos",
-        location: "Barrio Central",
-        capacity: "5/20",
-        description: "Recolección de alimentos no perecederos para distribución.",
+      id: 2,
+      title: "Recolección de alimentos",
+      location: "Barrio Central",
+      capacity: "5/20",
+      description: "Recolección de alimentos no perecederos para distribución.",
     },
     {
+      id: 3,
       title: "Apoyo médico",
       location: "Sector Norte",
       capacity: "2/8",

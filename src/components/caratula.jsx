@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom'
 import '../stylesheets/caratulas/style.scss';
 import '../stylesheets/caratulas/imagen.scss';
 
-const Caratula = ({ title, location, capacity, description, imageUrl }) => {
+const Caratula = ({ id, title, location, capacity, description, imageUrl }) => {
   const navigate = useNavigate()
   return (
     <div className="card-container">
@@ -41,7 +41,7 @@ const Caratula = ({ title, location, capacity, description, imageUrl }) => {
       </div>
 
       {/* Botón Ver más */}
-      <button onClick={() => navigate('/detalle')} className="card-button" >Ver más</button>
+      <button onClick={() => navigate(`/detalle/${id}`)} className="card-button" >Ver más</button>
     </div>
   );
 };

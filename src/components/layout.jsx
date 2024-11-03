@@ -8,7 +8,8 @@ import CaratulasPage from '../pages/caratulas_page'
 import CrearPeticion from '../pages/crear_peticion'
 import ActualizarPeticion from '../pages/actualizar_peticion'
 
-import EstDetalle from './detalle_estatico'
+import EstDetalle from '../pages/detalle_estatico.jsx'
+import Detalle from '../pages/detalle.jsx'
 
 const Layout = () => {
   return (
@@ -25,6 +26,8 @@ const Layout = () => {
             <Route path="/caratulas" element={<CaratulasPage />} />
 
             <Route path="/detalle" element={<EstDetalle />} />
+
+            <Route path="/detalle/:id" element={<Detalle />} />
 
             <Route path="/crear_peticion" element={<CrearPeticion />} />
 

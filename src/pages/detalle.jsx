@@ -1,8 +1,18 @@
 import React from 'react';
 import '../stylesheets/caratulas/detalle.scss';
 import '../stylesheets/caratulas/imagen.scss';
+import { useParams, useNavigate } from 'react-router-dom';
+import { useDatosPrueba } from '../components/datosPrueba.jsx'
 
 const Detalle = () => {
+  const navigate = useNavigate();
+  const { id } = useParams();
+  const arreglo = useDatosPrueba();
+  const datos = arreglo.find((acc) => acc.id === parseInt(id));
+
+  if (!datos) {
+    return <p>Accidente no encontrado :c</p>;
+  }
   return (
     <div className="card-detail">
       {/* Encabezado con el ícono y el nombre de la ubicación */}
@@ -10,7 +20,7 @@ const Detalle = () => {
         <div className="icon-wrapper">
           <span className="initial-icon">A</span>
         </div>
-        <h2 className="location-name">Población Vergara</h2>
+        <h2 className="location-name">{datos.location} </h2>
         <div className="progress-bar-container">
           <div className="progress-bar"></div>
         </div>
@@ -34,21 +44,19 @@ const Detalle = () => {
       {// Descripción del trabajo 
       }
       <div className="card-content">
-        <h3 className="card-title">Ayuda a recoger escombros</h3>
-        <p className="card-subtitle">Mano de obra</p>
-        <p className="card-instructions">Cada voluntario debe traer:</p>
+        <h3 className="card-title">{datos.title}</h3>
+        <p className="card-subtitle">Falta atributo: tipo</p>
+        <p className="card-instructions">{datos.description}</p>
         <ul className="volunteer-requirements">
           <li>Guantes</li>
           <li>Palas</li>
-          <li>Zapatos de seguridad</li>
-          <li>Bolsas de basura</li>
         </ul>
-        <p className="card-address">Dirección: Avenida siempre viva 123, población vergara, Valparaíso.</p>
+        <p className="card-address">Falta atributo: dirección</p>
         
         {/* Barra de progreso */}
         <div className="volunteer-progress">
           <img src="worker-icon.png" alt="Worker Icon" className="worker-icon" /> {/* Puedes reemplazar con el ícono que desees */}
-          <span className="progress-text">15/20</span>
+          <span className="progress-text">{datos.capacity}</span>
           <div className="progress-bar">
             <div className="progress-bar-fill" style={{ width: '75%' }}></div>
           </div>
@@ -56,8 +64,8 @@ const Detalle = () => {
 
         {/* Botones de volver y ayudar */}
         <div className="action-buttons">
-          <button className="back-button">Volver</button>
-          <button className="help-button">Ayudar</button>
+          <button onClick={() => navigate(-1)} className="back-button">Volver</button>
+          <button className="help-button">Ayudar</button> {/*Aquí debiera ir el onClick={() => navigate(/actualizar)} PERO hay que añadir las fxs para modificar los datos primero en los datos de prueba jeje*/}
         </div>
       </div>
     </div>

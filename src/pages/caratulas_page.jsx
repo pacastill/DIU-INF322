@@ -13,6 +13,7 @@ const CaratulasPage = () => {
       {datos.map((card, index) => (
         <Caratula
           key={index}
+          id={card.id}
           title={card.title}
           location={card.location}
           capacity={card.capacity}
