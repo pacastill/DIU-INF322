@@ -3,9 +3,9 @@ import '../stylesheets/index.scss';
 
 const CrearPeticion = () => {
     return (
-        <div className='container'>
+        <div className='container_form'>
             <form className='formulario'>
-                <label style={{fontWeight : 'bold'}}>Titulo de solicitud</label>        
+                <label style={{fontWeight : 'bold'}}>Título de solicitud</label>        
                 <input type="text" placeholder="Ingrese título" />
 
                 <div className="tipo-solicitud">
@@ -27,23 +27,29 @@ const CrearPeticion = () => {
                     <span>Vestuario</span>
                     <input className="input-field" type="number" placeholder="Prendas" />
                 </div>
-                <label style={{fontWeight : 'bold'}}>Nombre de organización o comunidad</label> 
-                <input type="text" placeholder="Organización o comunidad" />
+                
+                <label style={{fontWeight : 'bold'}}>Organización o comunidad</label> 
+                <input type="text" placeholder="Ingrese nombre de la organización o comunidad" />
+                
                 <label style={{fontWeight : 'bold'}}>Nombre encargado</label> 
-                <input type="text" placeholder="Nombre encargado" />
-                <label style={{fontWeight : 'bold'}}>Número de contacto</label> 
+                <input type="text" placeholder="Ingrese nombre del encargado" />
+                
+                <label style={{fontWeight : 'bold'}}>Contacto</label> 
                 <input type="tel" placeholder="+569 XXXX XXXX" />
-                <label style={{fontWeight : 'bold'}}>Detalles</label> 
+                
+                <label style={{fontWeight : 'bold'}}>Descripción</label> 
                 <textarea placeholder="Describa lo que necesita"></textarea>
-                {/* FALTA LA DIRECCIÓN */}
 
-                <button type="submit">Enviar</button>
-                {/*Arreglar botón*/}
             </form>
+            <div className='formulario'>
+                <label style={{fontWeight : 'bold'}}>Dirección</label> 
+                <input type="dir" placeholder="Ingrese dirección" />
+                <button type="submit" className="submit-button">Enviar</button>
 
-            <div className="map-container">
-                {/* soy el mapa  */}
+                <div className="map-container">
+                
                 <img src="path_to_your_map_image.png" alt="Mapa" />
+                </div>
             </div>
         </div>
     );

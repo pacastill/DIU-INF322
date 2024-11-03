@@ -1,15 +1,25 @@
-.container {
+.container_form {
     display: flex;
-    gap: 2rem;
+    gap: 4rem;
     margin-left: 20px;
     margin-top: 10px;
+    max-height:max-content;
+    justify-content: center;
+}
+
+.container_form_der {
+    display: flex;
+    gap: 4rem;
+    margin-left: 20px;
+    margin-top: 10px;
+    max-height:max-content;
 }
 
 .formulario {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
-    width: 550px;
+    width: 45%;
 }
 
 .formulario input,
@@ -49,6 +59,13 @@
 }
 
 .map-container {
-    width: 400px;
-    height: 400px;
+    width: 40%; /* Ajusta el ancho para que ocupe el espacio de la segunda columna */
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+
+.map-container img {
+    width: 100%;
+    border-radius: .5rem;
 }

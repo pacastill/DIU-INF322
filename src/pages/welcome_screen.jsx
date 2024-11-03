@@ -8,7 +8,6 @@ const WelcomeScreen = () => {
   const handleOrganizationSelect = (type) => {
     //Elección del tipo de organización
     console.log(`Selected organization type: ${type}`)
-    // For now, we'll just navigate to the home page
     //navigate('/home')
   }
 
