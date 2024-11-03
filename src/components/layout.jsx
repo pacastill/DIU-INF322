@@ -1,5 +1,6 @@
 import React from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { DatosPruebaProvider } from './datosPrueba.jsx';
 import LightbulbPage from '../pages/lightbulb_page'
 import NavBar from '../components/nav_bar'
 import WelcomeScreen from '../pages/welcome_screen'
@@ -7,10 +8,11 @@ import CaratulasPage from '../pages/caratulas_page'
 import CrearPeticion from '../pages/crear_peticion'
 import ActualizarPeticion from '../pages/actualizar_peticion'
 
-import Detalle from '../components/detalle'
+import EstDetalle from './detalle_estatico'
 
 const Layout = () => {
   return (
+    <DatosPruebaProvider>
     <BrowserRouter>
       <div className="min-h-screen items-center bg-gray-100">
         <NavBar />
@@ -22,7 +24,7 @@ const Layout = () => {
 
             <Route path="/caratulas" element={<CaratulasPage />} />
 
-            <Route path="/detalle" element={<Detalle />} />
+            <Route path="/detalle" element={<EstDetalle />} />
 
             <Route path="/crear_peticion" element={<CrearPeticion />} />
 
@@ -31,6 +33,7 @@ const Layout = () => {
         </div>
       </div>
     </BrowserRouter>
+    </DatosPruebaProvider>
   )
 }
 
