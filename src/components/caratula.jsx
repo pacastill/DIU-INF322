@@ -5,14 +5,14 @@ import { useNavigate } from 'react-router-dom'
 import '../stylesheets/caratulas/style.scss';
 import '../stylesheets/caratulas/imagen.scss';
 
-const Caratula = ({ id, title, location, capacity, description, imageUrl }) => {
+const Caratula = ({ id, title, comunidad, donado, solicitado, description, imageUrl }) => {
   const navigate = useNavigate()
   return (
     <div className="card-container">
       {/* Header */}
       <div className="card-header">
-        <div className="card-avatar">A</div>
-        <span className="card-title">{location}</span>
+        <div className="card-avatar">{comunidad.charAt(0)}</div>
+        <span className="card-title">{comunidad}</span>
         <button className="card-menu">
           <svg xmlns="http://www.w3.org/2000/svg" className="menu-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 12h.01M12 12h.01M18 12h.01" />
@@ -36,7 +36,7 @@ const Caratula = ({ id, title, location, capacity, description, imageUrl }) => {
       {/* Contenido */}
       <div className="card-content">
         <h3 className="card-task-title">{title}</h3>
-        <p className="card-status">{capacity}</p>
+        <p className="card-status">{donado}/{solicitado}</p>
         <p className="card-description">{description}</p>
       </div>
 

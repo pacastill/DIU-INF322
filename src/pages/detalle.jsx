@@ -4,11 +4,24 @@ import '../stylesheets/caratulas/imagen.scss';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useDatosPrueba } from '../components/datosPrueba.jsx'
 
+import insumo_medico from '../assets/insumo_medico.png'
+import mano_obra from '../assets/mano_obra.png'
+import no_perecible from '../assets/no_perecible.png'
+
 const Detalle = () => {
   const navigate = useNavigate();
   const { id } = useParams();
   const arreglo = useDatosPrueba();
   const datos = arreglo.find((acc) => acc.id === parseInt(id));
+
+  const imagenes = {
+    'mano de obra': mano_obra,
+    'insumos médicos': insumo_medico,
+    'alimentos no perecibles': no_perecible,
+  };
+
+  const imagenSrc = imagenes[datos.tipo] || 'default.png';
+
 
   if (!datos) {
     return <p>Accidente no encontrado :c</p>;
@@ -18,17 +31,9 @@ const Detalle = () => {
       {/* Encabezado con el ícono y el nombre de la ubicación */}
       <div className="card-detail-header">
         <div className="icon-wrapper">
-          <span className="initial-icon">A</span>
+          <span className="initial-icon">{datos.comunidad.charAt(0)}</span>
         </div>
-        <h2 className="location-name">{datos.location} </h2>
-        <div className="progress-bar-container">
-          <div className="progress-bar"></div>
-        </div>
-        <button className="menu-button">
-          <svg xmlns="http://www.w3.org/2000/svg" className="menu-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 12h.01M12 12h.01M18 12h.01" />
-          </svg>
-        </button>
+        <h2 className="location-name">{datos.comunidad} </h2>
       </div>
 
       {//Contenedor de la imagen
@@ -45,20 +50,21 @@ const Detalle = () => {
       }
       <div className="card-content">
         <h3 className="card-title">{datos.title}</h3>
-        <p className="card-subtitle">Falta atributo: tipo</p>
-        <p className="card-instructions">{datos.description}</p>
-        <ul className="volunteer-requirements">
+        <p className="card-subtitle">{datos.tipo}</p>
+        <p className="volunteer-requirements">{datos.description}</p>
+        {/*<ul className="volunteer-requirements">
           <li>Guantes</li>
           <li>Palas</li>
-        </ul>
-        <p className="card-address">Falta atributo: dirección</p>
+        </ul>*/}
+        <p className="card-address">Dirección: {datos.direccion}</p>
         
         {/* Barra de progreso */}
         <div className="volunteer-progress">
-          <img src="worker-icon.png" alt="Worker Icon" className="worker-icon" /> {/* Puedes reemplazar con el ícono que desees */}
-          <span className="progress-text">{datos.capacity}</span>
+          <img src={imagenes[datos.tipo]} alt="Imagen" className="worker-icon" />
+          
+          <span className="progress-text">{datos.donado}/{datos.solicitado}</span>
           <div className="progress-bar">
-            <div className="progress-bar-fill" style={{ width: '75%' }}></div>
+            <div className="progress-bar-fill" style={{ width: `${(datos.donado / datos.solicitado) * 100}%` }}></div>
           </div>
         </div>
 

@@ -15,8 +15,9 @@ const CaratulasPage = () => {
           key={index}
           id={card.id}
           title={card.title}
-          location={card.location}
-          capacity={card.capacity}
+          comunidad={card.comunidad}
+          donado={card.donado}
+          solicitado={card.solicitado}
           description={card.description}
         />
       ))}
