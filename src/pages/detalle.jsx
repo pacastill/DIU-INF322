@@ -4,24 +4,14 @@ import '../stylesheets/caratulas/imagen.scss';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useDatosPrueba } from '../components/datosPrueba.jsx'
 
-import insumo_medico from '../assets/insumo_medico.png'
-import mano_obra from '../assets/mano_obra.png'
-import no_perecible from '../assets/no_perecible.png'
+import tiposIcon from '../assets/tipos';
+import imagesSrc from '../assets/images';
 
 const Detalle = () => {
   const navigate = useNavigate();
   const { id } = useParams();
   const arreglo = useDatosPrueba();
   const datos = arreglo.find((acc) => acc.id === parseInt(id));
-
-  const imagenes = {
-    'mano de obra': mano_obra,
-    'insumos médicos': insumo_medico,
-    'alimentos no perecibles': no_perecible,
-  };
-
-  const imagenSrc = imagenes[datos.tipo] || 'default.png';
-
 
   if (!datos) {
     return <p>Accidente no encontrado :c</p>;
@@ -39,11 +29,15 @@ const Detalle = () => {
       {//Contenedor de la imagen
       }
       <div className="card-image-placeholder">
+        {imagesSrc[datos.id] ? (
+          <img src={imagesSrc[datos.id]} className="card-image" />
+        ) : (
           <svg className="shape-icon" fill="currentColor" viewBox="0 0 24 24">
             <polygon points="12 2, 17 9, 7 9" />
             <rect x="3" y="12" width="7" height="7" />
             <circle cx="17" cy="16" r="3.5" />
           </svg>
+        )}
       </div>
 
       {// Descripción del trabajo 
@@ -60,8 +54,7 @@ const Detalle = () => {
         
         {/* Barra de progreso */}
         <div className="volunteer-progress">
-          <img src={imagenes[datos.tipo]} alt="Imagen" className="worker-icon" />
-          
+          <img src={tiposIcon[datos.tipo]} className="worker-icon" />
           <span className="progress-text">{datos.donado}/{datos.solicitado}</span>
           <div className="progress-bar">
             <div className="progress-bar-fill" style={{ width: `${(datos.donado / datos.solicitado) * 100}%` }}></div>

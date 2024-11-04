@@ -4,6 +4,9 @@ import Caratula from '../components/caratula.jsx';
 // Arreglo con datos de ejemplo
 import { useDatosPrueba } from '../components/datosPrueba.jsx'
 
+import imagesSrc from '../assets/images';
+import tiposIcon from '../assets/tipos';
+
 const CaratulasPage = () => {
 
   const datos = useDatosPrueba();
@@ -19,6 +22,9 @@ const CaratulasPage = () => {
           donado={card.donado}
           solicitado={card.solicitado}
           description={card.description}
+          imageUrl={imagesSrc[card.id]}
+          tipo={card.tipo}
+          imagenTipo={tiposIcon[card.tipo]}
         />
       ))}
     </div>

@@ -65,22 +65,37 @@ body {
   /* Imagen */
 
   /*Contenido */
+
+
   .card-content {
     margin-bottom: 16px;
   }
-  
-  .card-task-title {
-    color: #333;
-    font-weight: 600;
-    margin-bottom: 4px;
+
+  .principal-title {
+    display: flex;
+    align-content: space-between;
+    flex-wrap: wrap;
+
+    .tipo-icon {
+      width: 40px;
+      margin-left: auto;
+      
+      align-self: center;
+    }
+
+    .card-task-title {
+      color: #333;
+      font-weight: 600;
+      margin-bottom: -10px;
+    }
+
+    .card-status {
+      font-size: 15px;
+      color: #666;
+      margin-bottom: 8px;
+    }  
   }
-  
-  .card-status {
-    font-size: 14px;
-    color: #666;
-    margin-bottom: 8px;
-  }
-  
+
   .card-description {
     font-size: 14px;
     color: #4b5563;
