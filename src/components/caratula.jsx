@@ -2,8 +2,7 @@ import React from 'react';
 
 import { useNavigate } from 'react-router-dom'
 
-import '../stylesheets/caratulas/style.scss';
-import '../stylesheets/caratulas/imagen.scss';
+import '../stylesheets/index.scss';
 
 const Caratula = ({ id, title, comunidad, donado, solicitado, description, imageUrl, tipo, imagenTipo }) => {
   const navigate = useNavigate()

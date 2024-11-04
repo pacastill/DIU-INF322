@@ -15,7 +15,7 @@
     .icon-wrapper {
       width: 40px;
       height: 40px;
-      background-color: #8a73ab;
+      background-color: #6b46c1;
       color: white;
       display: flex;
       align-items: center;
@@ -42,7 +42,7 @@
     .progress-bar {
       width: 50%;
       height: 100%;
-      background-color: #8a73ab;
+      background-color: #6b46c1;
       position: absolute;
       top: 0;
     }
@@ -65,11 +65,11 @@
     }
     .volunteer-requirements {
       list-style-type: disc;
-      padding-left: 20px;
       margin-bottom: 15px;
     }
     .card-address {
       font-style: italic;
+      color: rgb(67, 67, 67);
       margin-bottom: 20px;
     }
   }
@@ -98,7 +98,7 @@
     .progress-bar-fill {
       width: 75%; /* Ajustar porcentaje para la cantidad de voluntarios */
       height: 100%;
-      background-color: #8a73ab;
+      background-color: #6b46c1;
       border-radius: 5px;
     }
   }
@@ -121,7 +121,7 @@
     }
     
     .help-button {
-      background-color: #8a73ab;
+      background-color: #6b46c1;
       color: white;
     }
   }

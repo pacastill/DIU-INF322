@@ -13,7 +13,7 @@ const DatosPrueba = [
       contacto: "Tito",
       direccion: "Jorge Kenrick 780",
       tipo: "Mano de obra",
-      donado: 8,
+      donado: 9,
       solicitado: 10,
       description: "Gente joven, traer sus propios materiales y herramientas. Traer:\n-Guantes\n-Casco\n-Pala",
       "geometry": [
@@ -29,7 +29,7 @@ const DatosPrueba = [
       contacto: "912345678",
       direccion: "Los Placeres 466, Valparaíso",
       tipo: "Alimentos no perecibles",
-      donado: 5,
+      donado: 1,
       solicitado: 15,
       description: "Recolección de alimentos no perecederos para distribución.",
       "geometry": [
@@ -45,7 +45,7 @@ const DatosPrueba = [
       contacto: "912345678",
       direccion: "Av. España 1680",
       tipo: "Insumos médicos",
-      donado: 0,
+      donado: 8,
       solicitado: 20,
       description: "Buscamos donaciones de insumos médicos e insumos para primeros auxilios.",
       geometry: [

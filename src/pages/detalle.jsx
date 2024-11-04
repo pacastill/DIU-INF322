@@ -1,6 +1,5 @@
 import React from 'react';
-import '../stylesheets/caratulas/detalle.scss';
-import '../stylesheets/caratulas/imagen.scss';
+import '../stylesheets/index.scss';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useDatosPrueba } from '../components/datosPrueba.jsx'
 

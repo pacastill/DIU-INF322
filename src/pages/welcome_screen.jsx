@@ -18,7 +18,7 @@ const WelcomeScreen = () => {
       <div className="flex mb-8">
         <button
           onClick={() => handleOrganizationSelect('./pages/voluntariado')} //Hay que crear estas rutas
-          className="px-6 py-2 bg-white text-black rounded-l-full border border-gray-300 hover:bg-gray-100"
+          className='submit-button'
         >
           Voluntariado
         </button>
@@ -31,7 +31,7 @@ const WelcomeScreen = () => {
       </div>
       <button
         onClick={() => navigate('/home')}//Este ya no sirve es el que estaba de ejemplo
-        className="px-6 py-2 bg-gray-800 text-white rounded-full hover:bg-gray-700"
+        className='submit-button'
       >
         Ingresar
       </button>
