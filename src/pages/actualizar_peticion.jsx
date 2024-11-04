@@ -1,5 +1,6 @@
 import React from 'react';
 import '../stylesheets/index.scss';
+import MapView from '../components/MapView';
 
 const ActualizarPeticion = () => {
     return (
@@ -43,8 +44,7 @@ const ActualizarPeticion = () => {
                 </div>
             </form>
             <div className="map-container">
-                
-                <img src="path_to_your_map_image.png" alt="Mapa" />
+                <MapView />;
             </div>
         </div>
     );

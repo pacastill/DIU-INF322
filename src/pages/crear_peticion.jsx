@@ -1,5 +1,6 @@
 import React from 'react';
 import '../stylesheets/index.scss';
+import MapView from '../components/MapView';
 
 const CrearPeticion = () => {
     return (
@@ -46,9 +47,8 @@ const CrearPeticion = () => {
                 <input type="dir" placeholder="Ingrese dirección" />
                 <button type="submit" className="submit-button">Enviar</button>
 
-                <div className="map-container">
-                
-                <img src="path_to_your_map_image.png" alt="Mapa" />
+                <div style={container_style}>
+                    <MapView />;
                 </div>
             </div>
         </div>
@@ -56,3 +56,9 @@ const CrearPeticion = () => {
 };
 
 export default CrearPeticion;
+
+const container_style = {
+      display: 'flex',
+      height: "100%",
+      weight: "100%",
+  };

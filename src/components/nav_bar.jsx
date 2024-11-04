@@ -47,6 +47,12 @@ export const NavBar = () => {
       >
         Actualizar Petición
       </NavLink>
+      <NavLink
+        className={navLinkClass}
+        to='/maps'
+      >
+        maps
+      </NavLink>
       
       
     </nav>

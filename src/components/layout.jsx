@@ -7,9 +7,9 @@ import WelcomeScreen from '../pages/welcome_screen'
 import CaratulasPage from '../pages/caratulas_page'
 import CrearPeticion from '../pages/crear_peticion'
 import ActualizarPeticion from '../pages/actualizar_peticion'
-
 import EstDetalle from '../pages/detalle_estatico.jsx'
 import Detalle from '../pages/detalle.jsx'
+import MapPage from '../pages/maps.jsx';
 
 const Layout = () => {
   return (
@@ -32,6 +32,8 @@ const Layout = () => {
             <Route path="/crear_peticion" element={<CrearPeticion />} />
 
             <Route path="/actualizar_peticion" element={<ActualizarPeticion />} />
+            
+            <Route path="/maps" element={<MapPage />} />
           </Routes>
         </div>
       </div>
