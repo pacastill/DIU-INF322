@@ -15,25 +15,12 @@ export const NavBar = () => {
       >
         Inicio
       </NavLink>
-      <NavLink
-        className={navLinkClass}
-        to='/lightbulb'
-      >
-        Ampolleta
-      </NavLink>
 
       <NavLink
         className={navLinkClass}
         to='/caratulas'
       >
         Caratulas
-      </NavLink>
-
-      <NavLink
-        className={navLinkClass}
-        to='/detalle'
-      >
-        Detalle
       </NavLink>
       <NavLink
         className={navLinkClass}

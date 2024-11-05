@@ -1,6 +1,6 @@
 import React from 'react';
 import '../stylesheets/index.scss';
-import MapView from '../components/MapView';
+import MapView from '../components/MapPeticiones';
 
 const ActualizarPeticion = () => {
     return (

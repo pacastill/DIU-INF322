@@ -16,10 +16,7 @@ const DatosPrueba = [
       donado: 9,
       solicitado: 10,
       description: "Gente joven, traer sus propios materiales y herramientas. Traer:\n-Guantes\n-Casco\n-Pala",
-      "geometry": [
-                52.486319,
-                13.421437
-            ]
+      lat: -33.0598468, lng: -71.5913598,
     },
     {
       id: 2,
@@ -32,10 +29,7 @@ const DatosPrueba = [
       donado: 1,
       solicitado: 15,
       description: "Recolección de alimentos no perecederos para distribución.",
-      "geometry": [
-                52.527025,
-                13.446139
-            ]
+      lat: -33.0365761, lng: -71.5971082,
     },
     {
       id: 3,
@@ -48,10 +42,7 @@ const DatosPrueba = [
       donado: 8,
       solicitado: 20,
       description: "Buscamos donaciones de insumos médicos e insumos para primeros auxilios.",
-      geometry: [
-                52.500772,
-                13.472764
-            ]
+      lat: -33.0343542, lng: -71.5972368,
     },
 ];
 

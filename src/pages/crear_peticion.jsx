@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import '../stylesheets/index.scss';
-import MapView from '../components/MapView';
+import MapPeticiones from '../components/MapPeticiones';
 
 const CrearPeticion = () => {
     const [direccion, setDireccion] = useState('');  // Estado para la entrada de dirección
@@ -65,7 +65,7 @@ const CrearPeticion = () => {
                 <button type="submit" className="submit-button">Enviar</button>
 
                 <div style={container_style}>
-                    <MapView direccion={direccionParaBuscar} />  {/* Pasa dirección para buscar a MapView */}
+                    <MapPeticiones direccion={direccionParaBuscar} />  {/* Pasa dirección para buscar a MapView */}
                 </div>
             </div>
         </div>
