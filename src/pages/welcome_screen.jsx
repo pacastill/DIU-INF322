@@ -17,7 +17,7 @@ const WelcomeScreen = () => {
       <p className="text-xl mb-8">¿De qué tipo de organización eres miembro?</p>
       <div className="flex mb-8">
         <button
-          onClick={() => handleOrganizationSelect('./pages/voluntariado')} //Hay que crear estas rutas
+          onClick={() => handleOrganizationSelect('/maps')} //Hay que crear estas rutas
           className='submit-button'
         >
           Voluntariado

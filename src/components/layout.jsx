@@ -9,6 +9,7 @@ import ActualizarPeticion from '../pages/actualizar_peticion'
 import EstDetalle from '../pages/detalle_estatico.jsx'
 import Detalle from '../pages/detalle.jsx'
 import MapPage from '../pages/maps.jsx';
+import EnviarAyuda from '../pages/enviar_ayuda.jsx';
 
 const Layout = () => {
   return (
@@ -29,6 +30,8 @@ const Layout = () => {
             <Route path="/crear_peticion" element={<CrearPeticion />} />
 
             <Route path="/actualizar_peticion" element={<ActualizarPeticion />} />
+
+            <Route path="/enviar_ayuda" element={<EnviarAyuda />} />
             
             <Route path="/maps" element={<MapPage />} />
           </Routes>

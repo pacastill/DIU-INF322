@@ -40,7 +40,12 @@ export const NavBar = () => {
       >
         maps
       </NavLink>
-      
+      <NavLink
+        className={navLinkClass}
+        to='/enviar_ayuda'
+      >
+        Enviar ayuda
+      </NavLink>
       
     </nav>
   )

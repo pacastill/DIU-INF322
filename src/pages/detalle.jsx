@@ -63,7 +63,7 @@ const Detalle = () => {
         {/* Botones de volver y ayudar */}
         <div className="action-buttons">
           <button onClick={() => navigate(-1)} className="back-button">Volver</button>
-          <button className="help-button">Ayudar</button> {/*Aquí debiera ir el onClick={() => navigate(/actualizar)} PERO hay que añadir las fxs para modificar los datos primero en los datos de prueba jeje*/}
+          <button onClick={() => navigate(`/enviar_ayuda`)} className="help-button">Ayudar</button> {/*Aquí debiera ir el onClick={() => navigate(/actualizar)} PERO hay que añadir las fxs para modificar los datos primero en los datos de prueba jeje*/}
         </div>
       </div>
     </div>
