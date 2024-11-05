@@ -5,9 +5,8 @@ import MapView from '../components/MapPeticiones';
 const ActualizarPeticion = () => {
     return (
         <div className='container_form'>
-            <form className='formulario'>
-            <label style={{fontWeight : 'bold'}}>Título de solicitud</label>        
-                <input type="text" placeholder="Ingrese título" />
+            <form className='formulario'>   
+                <input type="text" placeholder="Ingrese título de la solicitud" />
 
                 <div className="tipo-solicitud">
                     <label>Tipo de solicitud</label>
