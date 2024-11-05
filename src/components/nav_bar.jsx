@@ -24,6 +24,12 @@ export const NavBar = () => {
       </NavLink>
       <NavLink
         className={navLinkClass}
+        to='/mis_caratulas'
+      >
+        Mis caratulas
+      </NavLink>
+      <NavLink
+        className={navLinkClass}
         to='/crear_peticion'
       >
         Crear Petición

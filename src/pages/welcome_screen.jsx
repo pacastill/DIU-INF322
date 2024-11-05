@@ -1,38 +1,45 @@
 import React from 'react'
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom'
 import '../stylesheets/index.scss';
 
 const WelcomeScreen = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
-  const handleOrganizationSelect = (type) => {
-    //Elección del tipo de organización
-    console.log(`Selected organization type: ${type}`)
-    //navigate('/home')
-  }
+  const [tipoSeleccionado, setTipoSeleccionado] = useState('');
+
+  const seleccionarTipo = (tipo) => {
+    setTipoSeleccionado(tipo);
+  };
+
+  const manejarIngreso = () => {
+    if (tipoSeleccionado === 'Voluntariado') {
+      navigate('/maps'); // Redirige a la página de voluntariado
+    } else if (tipoSeleccionado === 'Local') {
+      navigate('/mis_caratulas');
+    } else {
+      alert('Por favor selecciona un tipo de organización'); // Si no se ha seleccionado ninguna opción
+    }
+  };
 
   return (
     <div className='welcome_screen'>
-      <h1 className="text-4xl items-center font-bold mb-8">¡Bienvenido a ColaBora!</h1>
-      <p className="text-xl mb-8">¿De qué tipo de organización eres miembro?</p>
-      <div className="flex mb-8">
+      <h3>¿De qué tipo de organización eres miembro?</h3>
+      <div className="botones-seleccion">
         <button
-          onClick={() => handleOrganizationSelect('/maps')} //Hay que crear estas rutas
-          className='submit-button'
+          className={tipoSeleccionado === 'Voluntariado' ? 'boton-seleccionado' : 'boton'}
+          onClick={() => seleccionarTipo('Voluntariado')}
         >
           Voluntariado
         </button>
         <button
-          onClick={() => navigate('/caratulas')}//Esta está funcional pero en verdad no se va a ocupar este como tal jaja
-          className= 'submit-button'
+          className={tipoSeleccionado === 'Local' ? 'boton-seleccionado' : 'boton'}
+          onClick={() => seleccionarTipo('Local')}
         >
           Local
         </button>
       </div>
-      <button
-        onClick={() => navigate('/home')}//Este ya no sirve es el que estaba de ejemplo
-        className='submit-button'
-      >
+      <button onClick={manejarIngreso} className="boton-ingresar">
         Ingresar
       </button>
     </div>
