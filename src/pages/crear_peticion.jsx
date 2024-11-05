@@ -1,8 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../stylesheets/index.scss';
 import MapView from '../components/MapView';
 
 const CrearPeticion = () => {
+    const [direccion, setDireccion] = useState('');  // Estado para la entrada de dirección
+    const [direccionParaBuscar, setDireccionParaBuscar] = useState('');  // Estado para la búsqueda de dirección
+
+    const handleDireccionChange = (e) => {
+        setDireccion(e.target.value);
+    };
+
+    const handleBuscarDireccion = () => {
+        setDireccionParaBuscar(direccion);  // Actualiza la dirección para buscar en el mapa
+    };
+
     return (
         <div className='container_form'>
             <form className='formulario'>
@@ -40,15 +51,21 @@ const CrearPeticion = () => {
                 
                 <label style={{fontWeight : 'bold'}}>Descripción</label> 
                 <textarea placeholder="Describa lo que necesita"></textarea>
-
             </form>
+            
             <div className='formulario'>
                 <label style={{fontWeight : 'bold'}}>Dirección</label> 
-                <input type="dir" placeholder="Ingrese dirección" />
+                <input 
+                    type="text" 
+                    placeholder="Ingrese dirección" 
+                    value={direccion}
+                    onChange={handleDireccionChange}  // Actualiza el estado de dirección
+                />
+                <button type="button" onClick={handleBuscarDireccion}>Buscar Dirección</button> {/* Botón específico para búsqueda */}
                 <button type="submit" className="submit-button">Enviar</button>
 
                 <div style={container_style}>
-                    <MapView />;
+                    <MapView direccion={direccionParaBuscar} />  {/* Pasa dirección para buscar a MapView */}
                 </div>
             </div>
         </div>
@@ -58,7 +75,7 @@ const CrearPeticion = () => {
 export default CrearPeticion;
 
 const container_style = {
-      display: 'flex',
-      height: "100%",
-      weight: "100%",
-  };
+    display: 'flex',
+    height: '100%',
+    width: '100%',
+};
