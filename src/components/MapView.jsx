@@ -23,7 +23,7 @@ const MapView = ({ direccion, onCoordenadas }) => {
             position={[point.lat, point.lng]}
             icon={rojaIcon}
           >
-            <MarkerPopup props={point.description} />
+            <MarkerPopup direccion={point.direccion} description={point.description} id={point.id} />
           </Marker>
           
         ))}
