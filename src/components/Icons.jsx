@@ -4,7 +4,7 @@ import amarilla from '../assets/amarilla.png';
 import verde from '../assets/verde.png';
 import roja from '../assets/roja.png';
 
-export const amarillaIcon = new L.Icon({
+export const amarilloIcon = new L.Icon({
   iconUrl: amarilla,
   iconSize: [25, 25],
   iconAnchor: [13, 13],
