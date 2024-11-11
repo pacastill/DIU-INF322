@@ -1,35 +1,31 @@
-# frontend-sample-app
+# ColaBora
 
-Basic Frontend Development Environment to start an app with Webpack
+Diseño de MVP para la aplicación ColaBora, ideada como proyecto para Diseño de Interfaces Usuarias - INF322. 
 
-This repo includes `Webpack` to start an environment to build frontend views using `React`.
+La aplicación se ideó como solución para la comunicación entre comunidades locales y centros de ayuda, voluntariados u otras organizaciones después de desastres o incidentes, con la intención de centralizar las solicitudes de distintos tipos de ayuda y su estado actual.
 
-### Requirements
+### Requerimientos
 
 - Node >= 16.13.1
 - npm >= 8.1.2
 
-### Quick start
+### Inicio rápido
 
-Install dependences
+Para instalar:
 
 ```
 npm install
 ```
 
-Launch environment
+Lanzar la aplicación:
 
 ```
 npm run dev
 ```
 
-Now you can open http://localhost:5050
+Ingrese a http://localhost:5050 y podrá recorrer el MVP.
 
 ### Packages included
 
 - [Webpack](https://webpack.js.org/)
 - [React Router](https://reactrouter.com/en/main)
-
-### About stylesheets
-
-- Sample stylesheets were written using the [BEM](https://getbem.com/) structure
