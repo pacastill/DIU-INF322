@@ -9,8 +9,8 @@ import imagesSrc from '../assets/images';
 const Detalle = () => {
   const navigate = useNavigate();
   const { id } = useParams();
-  const arreglo = useDatosPrueba();
-  const datos = arreglo.find((acc) => acc.id === parseInt(id));
+  const { datosPrueba } = useDatosPrueba();
+  const datos = datosPrueba.find((acc) => acc.id === parseInt(id));
 
   if (!datos) {
     return <p>Accidente no encontrado :c</p>;
@@ -63,7 +63,7 @@ const Detalle = () => {
         {/* Botones de volver y ayudar */}
         <div className="action-buttons">
           <button onClick={() => navigate(-1)} className="back-button">Volver</button>
-          <button onClick={() => navigate(`/enviar_ayuda`)} className="help-button">Ayudar</button> {/*Aquí debiera ir el onClick={() => navigate(/actualizar)} PERO hay que añadir las fxs para modificar los datos primero en los datos de prueba jeje*/}
+          <button onClick={() => navigate(`/enviar-ayuda`)} className="help-button">Ayudar</button> {/*Aquí debiera ir el onClick={() => navigate(/actualizar)} PERO hay que añadir las fxs para modificar los datos primero en los datos de prueba jeje*/}
         </div>
       </div>
     </div>

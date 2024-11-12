@@ -7,7 +7,7 @@ import { useDatosPrueba } from '../components/datosPrueba';
 
 const MapView = ({ direccion, onCoordenadas }) => {
     const [position, setPosition] = useState({ lat: -33.0386458, lng: -71.5811897 });
-    const arreglo = useDatosPrueba();
+    const { datosPrueba }  = useDatosPrueba();
 
     return (
         <MapContainer center={position} zoom={13} style={{ height: "100vh", width: "100%" }}>
@@ -15,7 +15,7 @@ const MapView = ({ direccion, onCoordenadas }) => {
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                 attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
             />
-            {arreglo.map((point) => {
+            {datosPrueba.map((point) => {
                 const porcentaje = point.donado / point.solicitado;
                 let icon;
                 if (porcentaje < 1/3) {

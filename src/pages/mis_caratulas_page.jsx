@@ -9,12 +9,12 @@ import tiposIcon from '../assets/tipos';
 
 const CaratulasPage = () => {
 
-  const datos = useDatosPrueba();
+  const { datosPrueba } = useDatosPrueba();
   const encargado = "Tito";
 
   return (
     <div className="caratulas-page">
-      {datos.filter((card) => card.contacto === encargado).map((card, index) => (
+      {datosPrueba.filter((card) => card.contacto === encargado).map((card, index) => (
         <Caratula
           key={index}
           id={card.id}

@@ -1,4 +1,4 @@
-import React, { createContext, useContext } from 'react';
+import React, { createContext, useContext, useState } from 'react';
 
 // Crea el contexto
 const DatosPruebaContexto = createContext();
@@ -47,11 +47,26 @@ const DatosPrueba = [
 ];
 
 // Proveedor del contexto
-export const DatosPruebaProvider = ({ children }) => (
-  <DatosPruebaContexto.Provider value={DatosPrueba}>
-    {children}
-  </DatosPruebaContexto.Provider>
-);
+export const DatosPruebaProvider = ({ children }) => {
+  const [datosPrueba, setDatosPrueba] = useState(DatosPrueba);
+
+  // Función para añadir nuevos datos
+  const agregarDato = (nuevoDato) => {
+    setDatosPrueba([...datosPrueba, { ...nuevoDato, id: Date.now() }]); //, id: Date.now() -> para id único!
+  };
+
+  const modificarDato = (id, nuevosDatos) => {
+    setDatosPrueba((prevDatos) =>
+      prevDatos.map((dato) => (dato.id === id ? { ...dato, ...nuevosDatos } : dato))
+    );
+  };
+
+  return (
+    <DatosPruebaContexto.Provider value={{ datosPrueba, agregarDato, modificarDato }}>
+      {children}
+    </DatosPruebaContexto.Provider>
+  );
+};
 
 // Custom hook para usar el contexto
 export const useDatosPrueba = () => useContext(DatosPruebaContexto);

@@ -44,7 +44,7 @@ const Caratula = ({ id, title, comunidad, donado, solicitado, description, image
       </div>
 
       {/* Botón Ver más */}
-      <button onClick={() => navigate(`/actualizar_peticion/${id}`)} className="card-button" >Actualizar</button>
+      <button onClick={() => navigate(`/actualizar-peticion/${id}`)} className="card-button" >Actualizar</button>
     </div>
   );
 };

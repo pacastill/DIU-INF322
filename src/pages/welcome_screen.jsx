@@ -16,7 +16,7 @@ const WelcomeScreen = () => {
     if (tipoSeleccionado === 'Voluntariado') {
       navigate('/maps'); // Redirige a la página de voluntariado
     } else if (tipoSeleccionado === 'Local') {
-      navigate('/mis_caratulas');
+      navigate('/mis-caratulas');
     } else {
       alert('Por favor selecciona un tipo de organización'); // Si no se ha seleccionado ninguna opción
     }

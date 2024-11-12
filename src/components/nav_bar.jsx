@@ -24,19 +24,19 @@ export const NavBar = () => {
       </NavLink>
       <NavLink
         className={navLinkClass}
-        to='/mis_caratulas'
+        to='/mis-caratulas'
       >
         Mis caratulas
       </NavLink>
       <NavLink
         className={navLinkClass}
-        to='/crear_peticion'
+        to='/crear-peticion'
       >
         Crear Petición
       </NavLink>
       <NavLink
         className={navLinkClass}
-        to='/actualizar_peticion'
+        to='/actualizar-peticion'
       >
         Actualizar Petición
       </NavLink>
@@ -48,7 +48,7 @@ export const NavBar = () => {
       </NavLink>
       <NavLink
         className={navLinkClass}
-        to='/enviar_ayuda'
+        to='/enviar-ayuda'
       >
         Enviar ayuda
       </NavLink>
