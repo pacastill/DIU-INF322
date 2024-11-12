@@ -1,3 +1,4 @@
+{/*Archivo original de la Pali, es un resguardo noma por si lo otro no funcionaba*/}
 import React, { useState } from 'react';
 import '../stylesheets/index.scss';
 import MapPeticiones from '../components/MapPeticiones';

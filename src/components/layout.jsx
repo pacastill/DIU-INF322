@@ -5,9 +5,8 @@ import NavBar from '../components/nav_bar'
 import WelcomeScreen from '../pages/welcome_screen'
 import CaratulasPage from '../pages/caratulas_page'
 import MisCaratulasPage from '../pages/mis_caratulas_page'
-import CrearPeticion from '../pages/crear_peticion2'
+import CrearPeticion from '../pages/crear_peticion'
 import ActualizarPeticion from '../pages/actualizar_peticion'
-import EstDetalle from '../pages/detalle_estatico.jsx'
 import Detalle from '../pages/detalle.jsx'
 import MapPage from '../pages/maps.jsx';
 import EnviarAyuda from '../pages/enviar_ayuda.jsx';
@@ -25,8 +24,6 @@ const Layout = () => {
             <Route path="/caratulas" element={<CaratulasPage />} />
 
             <Route path="/mis-caratulas" element={<MisCaratulasPage />} />
-
-            <Route path="/detalle" element={<EstDetalle />} />
 
             <Route path="/detalle/:id" element={<Detalle />} />
 

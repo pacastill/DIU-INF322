@@ -1,8 +1,55 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import '../stylesheets/index.scss';
 import MapPeticiones from '../components/MapPeticiones';
+import { useDatosPrueba } from '../components/datosPrueba';
+
 
 const CrearPeticion = () => {
+    // Marti
+    const navigate = useNavigate();
+    const { agregarDato } = useDatosPrueba();
+    const [nuevoDato, setNuevoDato] = useState({
+        id: '', // Agrega un campo `id`
+        title: '',
+        comunidad: '',
+        encargado: '',
+        contacto: '',
+        direccion: '',
+        tipo: '',
+        donado: 0,
+        solicitado: 0,
+        description: '',
+        lat: 0,
+        lng: 0,
+    });
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setNuevoDato((prevDato) => ({ ...prevDato, [name]: value }));
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        console.log('Formulario enviado', nuevoDato);
+        agregarDato(nuevoDato); 
+        setNuevoDato({
+          title: '',
+          comunidad: '',
+          encargado: '',
+          contacto: '',
+          direccion: '',
+          tipo: '',
+          donado: 0,
+          solicitado: 0,
+          description: '',
+          lat: 0,
+          lng: 0,
+        });
+        navigate('/caratulas');
+    };
+
+    //Pali
     const [direccion, setDireccion] = useState('');  // Estado para la entrada de dirección
     const [direccionParaBuscar, setDireccionParaBuscar] = useState('');  // Estado para la búsqueda de dirección
 
@@ -16,9 +63,9 @@ const CrearPeticion = () => {
 
     return (
         <div className='container_form'>
-            <form className='formulario'>
+            <form className='formulario' onSubmit={handleSubmit}>
                 <label style={{fontWeight : 'bold'}}>Título de solicitud</label>        
-                <input type="text" placeholder="Ingrese título" />
+                <input type="text" name="title" value={nuevoDato.title} onChange={handleChange} placeholder="Ingrese título" />
 
                 <div className="tipo-solicitud">
                     <label>Tipo de solicitud</label>
@@ -41,33 +88,35 @@ const CrearPeticion = () => {
                 </div>
                 
                 <label style={{fontWeight : 'bold'}}>Organización o comunidad</label> 
-                <input type="text" placeholder="Ingrese nombre de la organización o comunidad" />
+                <input type="text" name="comunidad" value={nuevoDato.comunidad} onChange={handleChange} placeholder="Ingrese nombre de la organización o comunidad" />
                 
                 <label style={{fontWeight : 'bold'}}>Nombre encargado</label> 
-                <input type="text" placeholder="Ingrese nombre del encargado" />
+                <input type="text" name="encargado" value={nuevoDato.encargado} onChange={handleChange} placeholder="Ingrese nombre del encargado" />
                 
                 <label style={{fontWeight : 'bold'}}>Contacto</label> 
-                <input type="tel" placeholder="+569 XXXX XXXX" />
+                <input type="tel" name="contacto" value={nuevoDato.contacto} onChange={handleChange} placeholder="+569 XXXX XXXX" />
                 
                 <label style={{fontWeight : 'bold'}}>Descripción</label> 
-                <textarea placeholder="Describa lo que necesita"></textarea>
-            </form>
-            
-            <div className='formulario'>
+                <textarea name="description" value={nuevoDato.description} onChange={handleChange} placeholder="Describa lo que necesita"></textarea>
+            {/*Aki taba el forms antes*/}
                 <label style={{fontWeight : 'bold'}}>Dirección</label> 
                 <input 
                     type="text" 
                     placeholder="Ingrese dirección" 
                     value={direccion}
                     onChange={handleDireccionChange}  // Actualiza el estado de dirección
+                    //value={nuevoDato.direccion} onChange={handleChange}
                 />
                 <button type="button" onClick={handleBuscarDireccion}>Buscar Dirección</button> {/* Botón específico para búsqueda */}
                 <button type="submit" className="submit-button">Enviar</button>
-
-                <div style={container_style}>
+            </form>
+        {/*Dirección es parte del forms, pero visualmente queda abajo (solución parcial en caso de no lograr moverlo donde estaba inicialmente y q siga siendo parte del forms)*/}
+        <div className='formulario'>
+            <div style={container_style}>
                     <MapPeticiones direccion={direccionParaBuscar} />  {/* Pasa dirección para buscar a MapView */}
-                </div>
             </div>
+        </div>
+
         </div>
     );
 };
