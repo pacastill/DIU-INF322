@@ -49,7 +49,7 @@ const Detalle = () => {
           <li>Guantes</li>
           <li>Palas</li>
         </ul>*/}
-        <p className="card-address">Dirección: {datos.direccion}</p>
+        <p className="card-address">Dirección: {datos.lat},{datos.lng}</p>
         
         {/* Barra de progreso */}
         <div className="volunteer-progress">

@@ -23,6 +23,16 @@ const CrearPeticion = () => {
         lat: 0,
         lng: 0,
     });
+    
+
+    const handleCoordenadas = (coords) => {
+        console.log("Coordenadas recibidas:", coords);
+        setNuevoDato((prev) => ({
+            ...prev,
+            lat: coords.lat,
+            lng: coords.lng,
+        }));
+    };
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -32,19 +42,19 @@ const CrearPeticion = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log('Formulario enviado', nuevoDato);
-        agregarDato(nuevoDato); 
+        agregarDato(nuevoDato);
         setNuevoDato({
-          title: '',
-          comunidad: '',
-          encargado: '',
-          contacto: '',
-          direccion: '',
-          tipo: '',
-          donado: 0,
-          solicitado: 0,
-          description: '',
-          lat: 0,
-          lng: 0,
+            title: '',
+            comunidad: '',
+            encargado: '',
+            contacto: '',
+            direccion: '',
+            tipo: '',
+            donado: 0,
+            solicitado: 0,
+            description: '',
+            lat: 0,
+            lng: 0,
         });
         navigate('/caratulas');
     };
@@ -64,7 +74,7 @@ const CrearPeticion = () => {
     return (
         <div className='container_form'>
             <form className='formulario' onSubmit={handleSubmit}>
-                <label style={{fontWeight : 'bold'}}>Título de solicitud</label>        
+                <label style={{ fontWeight: 'bold' }}>Título de solicitud</label>
                 <input type="text" name="title" value={nuevoDato.title} onChange={handleChange} placeholder="Ingrese título" />
 
                 <div className="tipo-solicitud">
@@ -86,36 +96,37 @@ const CrearPeticion = () => {
                     <span>Vestuario</span>
                     <input className="input-field" type="number" placeholder="Prendas" />
                 </div>
-                
-                <label style={{fontWeight : 'bold'}}>Organización o comunidad</label> 
+
+                <label style={{ fontWeight: 'bold' }}>Organización o comunidad</label>
                 <input type="text" name="comunidad" value={nuevoDato.comunidad} onChange={handleChange} placeholder="Ingrese nombre de la organización o comunidad" />
-                
-                <label style={{fontWeight : 'bold'}}>Nombre encargado</label> 
+
+                <label style={{ fontWeight: 'bold' }}>Nombre encargado</label>
                 <input type="text" name="encargado" value={nuevoDato.encargado} onChange={handleChange} placeholder="Ingrese nombre del encargado" />
-                
-                <label style={{fontWeight : 'bold'}}>Contacto</label> 
+
+                <label style={{ fontWeight: 'bold' }}>Contacto</label>
                 <input type="tel" name="contacto" value={nuevoDato.contacto} onChange={handleChange} placeholder="+569 XXXX XXXX" />
-                
-                <label style={{fontWeight : 'bold'}}>Descripción</label> 
+
+                <label style={{ fontWeight: 'bold' }}>Descripción</label>
                 <textarea name="description" value={nuevoDato.description} onChange={handleChange} placeholder="Describa lo que necesita"></textarea>
-            {/*Aki taba el forms antes*/}
-                <label style={{fontWeight : 'bold'}}>Dirección</label> 
-                <input 
-                    type="text" 
-                    placeholder="Ingrese dirección" 
-                    value={direccion}
-                    onChange={handleDireccionChange}  // Actualiza el estado de dirección
-                    //value={nuevoDato.direccion} onChange={handleChange}
-                />
-                <button type="button" onClick={handleBuscarDireccion}>Buscar Dirección</button> {/* Botón específico para búsqueda */}
+                {/*Aki taba el forms antes*/}
+
                 <button type="submit" className="submit-button">Enviar</button>
             </form>
-        {/*Dirección es parte del forms, pero visualmente queda abajo (solución parcial en caso de no lograr moverlo donde estaba inicialmente y q siga siendo parte del forms)*/}
-        <div className='formulario'>
-            <div style={container_style}>
-                    <MapPeticiones direccion={direccionParaBuscar} />  {/* Pasa dirección para buscar a MapView */}
+            {/*Dirección es parte del forms, pero visualmente queda abajo (solución parcial en caso de no lograr moverlo donde estaba inicialmente y q siga siendo parte del forms)*/}
+            <div className='formulario'>
+                <label style={{ fontWeight: 'bold' }}>Dirección</label>
+                <input
+                    type="text"
+                    placeholder="Ingrese dirección"
+                    value={direccion}
+                    onChange={handleDireccionChange}  // Actualiza el estado de dirección
+                //value={nuevoDato.direccion} onChange={handleChange}
+                />
+                <button type="button" onClick={handleBuscarDireccion}>Buscar Dirección</button> {/* Botón específico para búsqueda */}
+                <div style={container_style}>
+                    <MapPeticiones direccion={direccionParaBuscar} onCoordenadas={handleCoordenadas} />  {/* Pasa `handleCoordenadas` */}
+                </div>
             </div>
-        </div>
 
         </div>
     );
