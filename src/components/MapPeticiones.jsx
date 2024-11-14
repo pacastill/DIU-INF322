@@ -1,10 +1,11 @@
-import React, { useState, useEffect, useRef, useMemo, useCallback } from "react";
-import { MapContainer, TileLayer, Marker, useMap, Popup } from "react-leaflet";
+import React, { useState, useEffect, useRef, useMemo } from "react";
+import { MapContainer, TileLayer, Marker, useMap } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import { rojaIcon } from "./Icons";
 
-const MapView = ({ direccion, onCoordenadas }) => {
-  const [position, setPosition] = useState({ lat: -33.0386458, lng: -71.5811897 });  // Posición inicial
+const MapView = ({ direccion, onCoordenadas, initialPosition }) => {
+  console.log("AAAAAA",initialPosition)
+  const [position, setPosition] = useState(initialPosition || { lat: -33.0386458, lng: -71.5811897 }); // Usa `initialPosition` si está disponible
 
   const MoveMapToLocation = ({ position }) => {
     const map = useMap();
@@ -17,20 +18,21 @@ const MapView = ({ direccion, onCoordenadas }) => {
   };
 
   function DraggableMarker() {
-    const [draggable, setDraggable] = useState(true)
-    const markerRef = useRef(null)
+    const [draggable, setDraggable] = useState(true);
+    const markerRef = useRef(null);
     const eventHandlers = useMemo(
       () => ({
         dragend() {
-          const marker = markerRef.current
+          const marker = markerRef.current;
           if (marker != null) {
-            setPosition(marker.getLatLng())
-            onCoordenadas(marker.getLatLng());
+            const newCoords = marker.getLatLng();
+            setPosition(newCoords);
+            onCoordenadas(newCoords);
           }
         },
       }),
-      [onCoordenadas],
-    )
+      [onCoordenadas]
+    );
 
     return (
       <Marker
@@ -38,28 +40,34 @@ const MapView = ({ direccion, onCoordenadas }) => {
         eventHandlers={eventHandlers}
         position={position}
         ref={markerRef}
-        icon={rojaIcon}>
-      </Marker>
-    )
+        icon={rojaIcon}
+      />
+    );
   }
 
-  useEffect(() => {
+  const buscarCoordenadasPorDireccion = (direccion) => {
     if (direccion) {
       fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(direccion)}`)
-        .then(response => response.json())
-        .then(data => {
+        .then((response) => response.json())
+        .then((data) => {
           if (data.length > 0) {
             const { lat, lon } = data[0];
             const coords = { lat: parseFloat(lat), lng: parseFloat(lon) };
             setPosition(coords);
-            //onCoordenadas(coords);  // Llama a la función para guardar las coordenadas en CrearPeticion
+            onCoordenadas(coords);
           } else {
             alert("Dirección no encontrada.");
           }
         })
-        .catch(error => console.error("Error en la geocodificación:", error));
+        .catch((error) => console.error("Error en la geocodificación:", error));
     }
-  }, [direccion, onCoordenadas]);
+  };
+
+  useEffect(() => {
+    if (direccion) {
+      buscarCoordenadasPorDireccion(direccion);
+    }
+  }, [direccion]);
 
   return (
     <MapContainer center={position} zoom={13}>

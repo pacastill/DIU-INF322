@@ -11,6 +11,7 @@ const Detalle = () => {
   const { id } = useParams();
   const { datosPrueba } = useDatosPrueba();
   const datos = datosPrueba.find((acc) => acc.id === parseInt(id));
+  const googleMapsLink = `https://www.google.com/maps?q=${datos.lat},${datos.lng}`;
 
   if (!datos) {
     return <p>Accidente no encontrado :c</p>;
@@ -49,8 +50,12 @@ const Detalle = () => {
           <li>Guantes</li>
           <li>Palas</li>
         </ul>*/}
-        <p className="card-address">Dirección: {datos.lat},{datos.lng}</p>
-        
+
+        <p className="card-address">Dirección: <a href={googleMapsLink} target="_blank" rel="noopener noreferrer">
+          Ver en Google Maps
+        </a></p>
+
+
         {/* Barra de progreso */}
         <div className="volunteer-progress">
           <img src={tiposIcon[datos.tipo]} className="worker-icon" />

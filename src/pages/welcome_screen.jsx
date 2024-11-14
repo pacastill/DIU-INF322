@@ -1,24 +1,23 @@
-import React from 'react'
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom'
-import '../stylesheets/index.scss';
+// WelcomeScreen.js
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useUser } from '../components/UserContext';  // Importa el contexto
 
 const WelcomeScreen = () => {
   const navigate = useNavigate();
-
-  const [tipoSeleccionado, setTipoSeleccionado] = useState('');
+  const { tipoSeleccionado, setTipoSeleccionado } = useUser();  // Usa el contexto
 
   const seleccionarTipo = (tipo) => {
-    setTipoSeleccionado(tipo);
+    setTipoSeleccionado(tipo);  // Actualiza el tipo seleccionado
   };
 
   const manejarIngreso = () => {
     if (tipoSeleccionado === 'Voluntariado') {
-      navigate('/maps'); // Redirige a la página de voluntariado
+      navigate('/maps');
     } else if (tipoSeleccionado === 'Local') {
       navigate('/mis-caratulas');
     } else {
-      alert('Por favor selecciona un tipo de organización'); // Si no se ha seleccionado ninguna opción
+      alert('Por favor selecciona un tipo de organización');
     }
   };
 
@@ -43,7 +42,7 @@ const WelcomeScreen = () => {
         Ingresar
       </button>
     </div>
-  )
-}
+  );
+};
 
-export default WelcomeScreen
+export default WelcomeScreen;

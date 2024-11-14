@@ -18,3 +18,47 @@ html, body {
 * {
   font-family: 'Open Sans', sans-serif;
 }
+
+.map-sidebar-container {
+  display: flex;
+  height: 100vh;
+}
+
+.map-container {
+  flex: 1; /* El mapa ocupará el espacio restante */
+}
+
+.sidebar-container {
+  width: 300px; /* Ancho fijo para la barra lateral */
+  background-color: white;
+  padding: 20px;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
+  position: relative;
+}
+
+.card-detail {
+  font-family: Arial, sans-serif;
+}
+
+.card-detail h2 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.card-detail p {
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+.card-detail button {
+  padding: 10px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.card-detail button:hover {
+  background-color: #45a049;
+}

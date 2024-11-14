@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 
 import '../stylesheets/index.scss';
 
-const Caratula = ({ id, title, comunidad, donado, solicitado, description, imageUrl, tipo, imagenTipo }) => {
+const Caratula = ({ id, title, comunidad, donado, solicitado, description, imageUrl, tipo, imagenTipo,lat,lng }) => {
   const navigate = useNavigate()
   return (
     <div className="card-container">
@@ -19,7 +19,7 @@ const Caratula = ({ id, title, comunidad, donado, solicitado, description, image
         </button>
       </div>
 
-    {/* Imagen */}
+      {/* Imagen */}
       <div className="card-image-placeholder">
         {imageUrl ? (
           <img src={imageUrl} alt={title} className="card-image" />
@@ -36,7 +36,7 @@ const Caratula = ({ id, title, comunidad, donado, solicitado, description, image
       <div className="card-content">
         <div className="principal-title">
           <div><h3 className="card-task-title">{title}</h3>
-              <p className="card-status">{donado}/{solicitado}</p>
+            <p className="card-status">{donado}/{solicitado}</p>
           </div>
           <img src={imagenTipo} alt={tipo} className="tipo-icon" />
         </div>
@@ -44,7 +44,13 @@ const Caratula = ({ id, title, comunidad, donado, solicitado, description, image
       </div>
 
       {/* Botón Ver más */}
-      <button onClick={() => navigate(`/actualizar-peticion/${id}`)} className="card-button" >Actualizar</button>
+      <button
+        onClick={() => navigate(`/actualizar-peticion/${id}`, { state: { id, title, comunidad, donado, solicitado, description, imageUrl, tipo,lng,lat } })}
+        className="card-button"
+      >
+        Actualizar
+      </button>
+
     </div>
   );
 };

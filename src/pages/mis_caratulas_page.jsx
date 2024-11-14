@@ -23,6 +23,8 @@ const CaratulasPage = () => {
           donado={card.donado}
           solicitado={card.solicitado}
           description={card.description}
+          lat={card.lat}
+          lng={card.lng}
           imageUrl={imagesSrc[card.id]}
           tipo={card.tipo}
           imagenTipo={tiposIcon[card.tipo]}
