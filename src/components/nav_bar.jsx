@@ -1,10 +1,13 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useLocation } from 'react-router-dom'
 import { useUser } from './UserContext';  // Importa el contexto
 import '../stylesheets/index.scss';
+import BotonIntercambio from '../components/botonIntercambio';
+import BotonAyuda from './botonAyuda';
 
 export const NavBar = () => {
   const { tipoSeleccionado } = useUser(); // Accede al tipo de usuario seleccionado
+  const location = useLocation();
 
   const navLinkClass = ({ isActive }) => {
     const classes = ['nav-bar__link']
@@ -21,7 +24,7 @@ export const NavBar = () => {
         Inicio
       </NavLink>
 
-      <NavLink
+      {/*<NavLink
         className={navLinkClass}
         to='/maps'
       >
@@ -34,12 +37,22 @@ export const NavBar = () => {
       >
         Caratulas
       </NavLink>
+      */}
+
       <NavLink
         className={navLinkClass}
-        to='/mis-caratulas'
+        to='/maps'
       >
-        Mis caratulas
+        Peticiones
       </NavLink>
+
+      <NavLink
+        className={navLinkClass}
+        to='/mis-peticiones'
+      >
+        Mis Peticiones
+      </NavLink>
+      
 
       {/* Solo muestra el enlace "Crear Petición" si el tipo de usuario es "Local" */}
       {tipoSeleccionado === 'Local' && (
@@ -49,6 +62,14 @@ export const NavBar = () => {
         >
           Crear Petición
         </NavLink>
+      )}
+
+      {(location.pathname === '/maps' || location.pathname === '/caratulas') && (
+        <BotonIntercambio />
+      )}
+
+      {location.pathname === '/maps' && (
+        <BotonAyuda />
       )}
 
     </nav>

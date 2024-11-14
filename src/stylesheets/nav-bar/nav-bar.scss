@@ -1,16 +1,15 @@
 // Colores y variables básicos
-$primary-color: #be339e;
-$secondary-color: #e8c7e9;
+$primary-color: #744cc9;
+$secondary-color: #d2c7e9;
 $text-color: #ffffff;
-$hover-color: #e148d1;
+$hover-color: #543479;
 $active-border-color: #ffffff;
 
 .nav-bar {
   display: flex;
-  justify-content: space-around;
   align-items: center;
   background-color: $secondary-color;
-  padding: 1rem;
+  padding: 0.4rem;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
 
   // Ajuste para pantallas pequeñas

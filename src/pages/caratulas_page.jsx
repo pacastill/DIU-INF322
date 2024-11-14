@@ -1,5 +1,6 @@
 import React from 'react';
 import Caratula from '../components/caratula.jsx';
+import BotonIntercambio from '../components/botonIntercambio.jsx';
 
 // Arreglo con datos de ejemplo
 import { useDatosPrueba } from '../components/datosPrueba.jsx'
@@ -12,7 +13,8 @@ const CaratulasPage = () => {
   const { datosPrueba } = useDatosPrueba();
 
   return (
-    <div className="caratulas-page">
+    <div className="caratulas-page" style={{ marginTop: '60px' }}>
+      
       {datosPrueba.map((card, index) => (
         <Caratula
           key={index}

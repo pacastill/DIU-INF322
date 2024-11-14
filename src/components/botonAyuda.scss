@@ -1,0 +1,50 @@
+.help-button-container {
+    position: absolute;
+    display: flex;
+    border-radius: 20px;
+    overflow: hidden;
+    width: 250px;
+    margin: 5px auto;
+    top: 64px;
+    left: 1000px;
+    z-index: 1000;
+  }
+  
+  .help-button {
+    background-color: #5c4a82;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    font-size: 15px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .tooltip {
+    visibility: hidden;
+    width: 200px;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    text-align: left;
+    border-radius: 5px;
+    padding: 10px;
+    position: absolute;
+    top: 70px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  
+  .help-button-container:hover .tooltip {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  
+  
