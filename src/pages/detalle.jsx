@@ -11,6 +11,9 @@ const Detalle = () => {
   const { id } = useParams();
   const { datosPrueba } = useDatosPrueba();
   const datos = datosPrueba.find((acc) => acc.id === parseInt(id));
+  const total_donado = datos.alimento_donado + datos.bebestible_donado + datos.insumo_donado + datos.mano_donado + datos.vestuario_donado
+  const total_solicitado = datos.alimento_solicitado + datos.bebestible_solicitado + datos.insumo_solicitado + datos.mano_solicitado + datos.vestuario_solicitado
+  const porcentage = (total_donado / total_solicitado) * 100
   const googleMapsLink = `https://www.google.com/maps?q=${datos.lat},${datos.lng}`;
 
   if (!datos) {
@@ -44,12 +47,25 @@ const Detalle = () => {
       }
       <div className="card-content">
         <h3 className="card-title">{datos.title}</h3>
-        <p className="card-subtitle">{datos.tipo}</p>
         <p className="volunteer-requirements">{datos.description}</p>
-        {/*<ul className="volunteer-requirements">
-          <li>Guantes</li>
-          <li>Palas</li>
-        </ul>*/}
+        <ul className="volunteer-requirements">
+          {datos.alimento_solicitado > 0 && (
+            <li>Alimentos no perecibles: {datos.alimento_donado}/{datos.alimento_solicitado} Kg</li>
+          )}
+          {datos.bebestible_solicitado > 0 && (
+            <li>Bebestibles: {datos.bebestible_donado}/{datos.bebestible_solicitado} Lt</li>
+          )}
+          {datos.insumo_solicitado > 0 && (
+            <li>Insumos médicos: {datos.insumo_donado}/{datos.insumo_solicitado} Kits Médicos</li>
+          )}
+          {datos.mano_solicitado > 0 && (
+            <li>Mano de obra: {datos.mano_donado}/{datos.mano_solicitado} Personas</li>
+          )}
+          {datos.vestuario_solicitado > 0 && (
+            <li>Vestuario: {datos.vestuario_donado}/{datos.vestuario_solicitado} Prendas</li>
+          )}
+        </ul>
+
 
         <p className="card-address">Dirección: <a href={googleMapsLink} target="_blank" rel="noopener noreferrer">
           Ver en Google Maps
@@ -59,9 +75,9 @@ const Detalle = () => {
         {/* Barra de progreso */}
         <div className="volunteer-progress">
           <img src={tiposIcon[datos.tipo]} className="worker-icon" />
-          <span className="progress-text">{datos.donado}/{datos.solicitado}</span>
+          <span className="progress-text">{porcentage} %</span>
           <div className="progress-bar">
-            <div className="progress-bar-fill" style={{ width: `${(datos.donado / datos.solicitado) * 100}%` }}></div>
+            <div className="progress-bar-fill" style={{ width: `${porcentage}%` }}></div>
           </div>
         </div>
 

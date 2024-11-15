@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 
 import '../stylesheets/index.scss';
 
-const Caratula = ({ id, title, comunidad, donado, solicitado, description, imageUrl, tipo, imagenTipo,lat,lng }) => {
+const Caratula = ({ id, title, comunidad, encargado, contacto,direccion,alimento_solicitado,bebestible_solicitado,insumo_solicitado,mano_solicitado,vestuario_solicitado, description, imageUrl, tipo,lng,lat }) => {
   const navigate = useNavigate()
   return (
     <div className="card-container">
@@ -36,20 +36,24 @@ const Caratula = ({ id, title, comunidad, donado, solicitado, description, image
       <div className="card-content">
         <div className="principal-title">
           <div><h3 className="card-task-title">{title}</h3>
-            <p className="card-status">{donado}/{solicitado}</p>
+            {/* <p className="card-status">{donado}/{solicitado}</p> */}
           </div>
-          <img src={imagenTipo} alt={tipo} className="tipo-icon" />
+          {/* <img src={imagenTipo} alt={tipo} className="tipo-icon" /> */}
         </div>
         <p className="card-description">{description}</p>
       </div>
 
       {/* Botón Ver más */}
+      <div>
+      <button onClick={() => navigate(`/detalle/${id}`)} className="card-button" >Ver más</button>
       <button
-        onClick={() => navigate(`/actualizar-peticion/${id}`, { state: { id, title, comunidad, donado, solicitado, description, imageUrl, tipo,lng,lat } })}
+        onClick={() => navigate(`/actualizar-peticion/${id}`, { state: { id, title, comunidad, encargado, contacto,direccion,alimento_solicitado,bebestible_solicitado,insumo_solicitado,mano_solicitado,vestuario_solicitado, description, imageUrl, tipo,lng,lat } })}
         className="card-button"
       >
         Actualizar
       </button>
+      </div>
+      
 
     </div>
   );

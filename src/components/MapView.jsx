@@ -63,7 +63,9 @@ const MapView = ({ direccion, onCoordenadas }) => {
             
             {/* Mapa con los puntos de datos */}
             {datosPrueba.map((point) => {
-                const porcentaje = point.donado / point.solicitado;
+                const total_donado = point.alimento_donado + point.bebestible_donado + point.insumo_donado + point.mano_donado + point.vestuario_donado
+                const total_solicitado = point.alimento_solicitado + point.bebestible_solicitado + point.insumo_solicitado + point.mano_solicitado + point.vestuario_solicitado
+                const porcentaje = total_donado / total_solicitado;
                 let icon;
                 if (porcentaje < 1 / 3) {
                     icon = rojaIcon;  // Menor a 1/3

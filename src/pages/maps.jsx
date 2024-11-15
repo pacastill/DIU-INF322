@@ -6,8 +6,8 @@ import MapContainerWithSidebar from '../components/MapContainerWithSidebar';
 
 const MapPage = () => {
   return (
-    <div>
-      <MapContainerWithSidebar/>
+    <div style={container_styles}>
+      <MapView/>
     </div>
   );
 };
@@ -19,5 +19,5 @@ const container_styles = {
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center',
-    height: '94.9vh',
+    height: '92.5vh',
 };

@@ -48,7 +48,7 @@ export const NavBar = () => {
 
       <NavLink
         className={navLinkClass}
-        to='/mis-peticiones'
+        to='/mis-caratulas'
       >
         Mis Peticiones
       </NavLink>
