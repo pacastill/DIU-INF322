@@ -1,11 +1,12 @@
 import React from 'react';
-
-import { useNavigate } from 'react-router-dom'
-
+import { useNavigate } from 'react-router-dom';
 import '../stylesheets/index.scss';
+import { useUser } from '../components/UserContext'; 
 
-const Caratula = ({ id, title, comunidad, alimento_donado, alimento_solicitado, description, imageUrl, tipo, imagenTipo }) => {
-  const navigate = useNavigate()
+const Caratula = ({ id, title, comunidad, encargado, contacto, direccion, alimento_solicitado, bebestible_solicitado, insumo_solicitado, mano_solicitado, vestuario_solicitado, description, imageUrl, tipo, lng, lat, alimento_donado, bebestible_donado, insumo_donado, mano_donado, vestuario_donado }) => {
+  const navigate = useNavigate();
+  const { tipoSeleccionado } = useUser();
+
   return (
     <div className="card-container">
       {/* Header */}
@@ -19,7 +20,7 @@ const Caratula = ({ id, title, comunidad, alimento_donado, alimento_solicitado, 
         </button>
       </div>
 
-    {/* Imagen */}
+      {/* Imagen */}
       <div className="card-image-placeholder">
         {imageUrl ? (
           <img src={imageUrl} alt={title} className="card-image" />
@@ -35,19 +36,52 @@ const Caratula = ({ id, title, comunidad, alimento_donado, alimento_solicitado, 
       {/* Contenido */}
       <div className="card-content">
         <div className="principal-title">
-          <div><h3 className="card-task-title">{title}</h3>
-              {/* <p className="card-status">{alimento_donado}/{alimento_solicitado}</p> */}
-          </div>
-          {/* <img src={imagenTipo} alt={tipo} className="tipo-icon" /> */}
+          <div><h3 className="card-task-title">{title}</h3></div>
         </div>
         <p className="card-description">{description}</p>
       </div>
 
-      {/* Botón Ver más */}
-      <button onClick={() => navigate(`/detalle/${id}`)} className="card-button" >Ver más</button>
+      {/* Botones "Ver más" y "Actualizar" */}
+      <div className="button-container">
+        <button onClick={() => navigate(`/detalle/${id}`)} className="card-button">Ver más</button>
+
+        {/* Condicional para mostrar el botón Actualizar solo si el encargado es "Tito" */}
+        {encargado === "Tito" && tipoSeleccionado === "Local" &&(
+          <button
+            onClick={() => navigate(`/actualizar-peticion/${id}`, {
+              state: {
+                id,
+                title,
+                comunidad,
+                encargado,
+                contacto,
+                direccion,
+                alimento_solicitado,
+                bebestible_solicitado,
+                insumo_solicitado,
+                mano_solicitado,
+                vestuario_solicitado,
+                description,
+                imageUrl,
+                tipo,
+                lng,
+                lat,
+                alimento_donado,
+                bebestible_donado,
+                insumo_donado,
+                mano_donado,
+                vestuario_donado
+              }
+            })}
+            className="card-button"
+          >
+            Actualizar
+          </button>
+        )}
+      </div>
     </div>
+
   );
 };
-
 
 export default Caratula;

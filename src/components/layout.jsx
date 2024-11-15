@@ -11,6 +11,7 @@ import ActualizarPeticion from '../pages/actualizar_peticion'
 import Detalle from '../pages/detalle.jsx'
 import MapPage from '../pages/maps.jsx';
 import EnviarAyuda from '../pages/enviar_ayuda.jsx';
+import '../stylesheets/index.scss';
 
 const Layout = () => {
   return (

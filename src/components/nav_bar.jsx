@@ -1,5 +1,5 @@
-import React from 'react'
-import { NavLink, useLocation } from 'react-router-dom'
+import React from 'react';
+import { NavLink, useLocation } from 'react-router-dom';
 import { useUser } from './UserContext';  // Importa el contexto
 import '../stylesheets/index.scss';
 import BotonIntercambio from '../components/botonIntercambio';
@@ -10,70 +10,44 @@ export const NavBar = () => {
   const location = useLocation();
 
   const navLinkClass = ({ isActive }) => {
-    const classes = ['nav-bar__link']
-    if (isActive) classes.push('nav-bar__link--active')
-    return classes.join(' ')
-  }
+    const classes = ['nav-bar__link'];
+    if (isActive) classes.push('nav-bar__link--active');
+    return classes.join(' ');
+  };
 
   return (
     <nav className='nav-bar'>
-      <NavLink
-        className={navLinkClass}
-        to='/'
-      >
+      {/* Siempre muestra "Inicio" */}
+      <NavLink className={navLinkClass} to='/'>
         Inicio
       </NavLink>
 
-      {/*<NavLink
-        className={navLinkClass}
-        to='/maps'
-      >
-        Mapa
-      </NavLink>
+      {/* Muestra "Peticiones" y "Mis Peticiones" solo si se ha seleccionado un tipo */}
+      {tipoSeleccionado && (
+        <>
+          <NavLink className={navLinkClass} to='/maps'>
+            Peticiones
+          </NavLink>
 
-      <NavLink
-        className={navLinkClass}
-        to='/caratulas'
-      >
-        Caratulas
-      </NavLink>
-      */}
+          <NavLink className={navLinkClass} to='/mis-caratulas'>
+            Mis Peticiones
+          </NavLink>
 
-      <NavLink
-        className={navLinkClass}
-        to='/maps'
-      >
-        Peticiones
-      </NavLink>
-
-      <NavLink
-        className={navLinkClass}
-        to='/mis-caratulas'
-      >
-        Mis Peticiones
-      </NavLink>
-      
-
-      {/* Solo muestra el enlace "Crear Petición" si el tipo de usuario es "Local" */}
-      {tipoSeleccionado === 'Local' && (
-        <NavLink
-          className={navLinkClass}
-          to='/crear-peticion'
-        >
-          Crear Petición
-        </NavLink>
+          {/* Solo muestra el enlace "Crear Petición" si el tipo de usuario es "Local" */}
+          {tipoSeleccionado === 'Local' && (
+            <NavLink className={navLinkClass} to='/crear-peticion'>
+              Crear Petición
+            </NavLink>
+          )}
+        </>
       )}
 
-      {(location.pathname === '/maps' || location.pathname === '/caratulas') && (
-        <BotonIntercambio />
-      )}
+      {/* Mostrar botones condicionalmente en base a la ruta */}
+      {(location.pathname === '/maps' || location.pathname === '/caratulas') && <BotonIntercambio />}
 
-      {location.pathname === '/maps' && (
-        <BotonAyuda />
-      )}
-
+      {location.pathname === '/maps' && <BotonAyuda />}
     </nav>
-  )
-}
- 
-export default NavBar
+  );
+};
+
+export default NavBar;

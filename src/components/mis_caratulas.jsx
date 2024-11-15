@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 
 import '../stylesheets/index.scss';
 
-const Caratula = ({ id, title, comunidad, encargado, contacto,direccion,alimento_solicitado,bebestible_solicitado,insumo_solicitado,mano_solicitado,vestuario_solicitado, description, imageUrl, tipo,lng,lat }) => {
+const Caratula = ({ id, title, comunidad, encargado, contacto, direccion, alimento_solicitado, bebestible_solicitado, insumo_solicitado, mano_solicitado, vestuario_solicitado, description, imageUrl, tipo, lng, lat, alimento_donado, bebestible_donado, insumo_donado, mano_donado, vestuario_donado }) => {
   const navigate = useNavigate()
   return (
     <div className="card-container">
@@ -43,17 +43,45 @@ const Caratula = ({ id, title, comunidad, encargado, contacto,direccion,alimento
         <p className="card-description">{description}</p>
       </div>
 
-      {/* Botón Ver más */}
-      <div>
-      <button onClick={() => navigate(`/detalle/${id}`)} className="card-button" >Ver más</button>
-      <button
-        onClick={() => navigate(`/actualizar-peticion/${id}`, { state: { id, title, comunidad, encargado, contacto,direccion,alimento_solicitado,bebestible_solicitado,insumo_solicitado,mano_solicitado,vestuario_solicitado, description, imageUrl, tipo,lng,lat } })}
-        className="card-button"
-      >
-        Actualizar
-      </button>
+      {/* Botones "Ver más" y "Actualizar" */}
+      <div className="button-container">
+        <button onClick={() => navigate(`/detalle/${id}`)} className="card-button">Ver más</button>
+
+        {/* Condicional para mostrar el botón Actualizar solo si el encargado es "Tito" */}
+        {encargado === "Tito" && (
+          <button
+            onClick={() => navigate(`/actualizar-peticion/${id}`, {
+              state: {
+                id,
+                title,
+                comunidad,
+                encargado,
+                contacto,
+                direccion,
+                alimento_solicitado,
+                bebestible_solicitado,
+                insumo_solicitado,
+                mano_solicitado,
+                vestuario_solicitado,
+                description,
+                imageUrl,
+                tipo,
+                lng,
+                lat,
+                alimento_donado,
+                bebestible_donado,
+                insumo_donado,
+                mano_donado,
+                vestuario_donado
+              }
+            })}
+            className="card-button"
+          >
+            Actualizar
+          </button>
+        )}
       </div>
-      
+
 
     </div>
   );

@@ -1,21 +1,24 @@
-// WelcomeScreen.js
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useUser } from '../components/UserContext';  // Importa el contexto
 
 const WelcomeScreen = () => {
   const navigate = useNavigate();
-  const { tipoSeleccionado, setTipoSeleccionado } = useUser();  // Usa el contexto
+  const { setTipoSeleccionado } = useUser();  // Usa el contexto
+  const [tipoTemporal, setTipoTemporal] = useState(null);  // Estado local para el tipo seleccionado temporalmente
 
   const seleccionarTipo = (tipo) => {
-    setTipoSeleccionado(tipo);  // Actualiza el tipo seleccionado
+    setTipoTemporal(tipo);  // Actualiza el estado local temporalmente
   };
 
   const manejarIngreso = () => {
-    if (tipoSeleccionado === 'Voluntariado') {
-      navigate('/maps');
-    } else if (tipoSeleccionado === 'Local') {
-      navigate('/mis-caratulas');
+    if (tipoTemporal) {
+      setTipoSeleccionado(tipoTemporal);  // Actualiza el estado global en el contexto
+      if (tipoTemporal === 'Voluntariado') {
+        navigate('/maps');
+      } else if (tipoTemporal === 'Local') {
+        navigate('/maps');
+      }
     } else {
       alert('Por favor selecciona un tipo de organización');
     }
@@ -26,13 +29,13 @@ const WelcomeScreen = () => {
       <h3>¿De qué tipo de organización eres miembro?</h3>
       <div className="botones-seleccion">
         <button
-          className={tipoSeleccionado === 'Voluntariado' ? 'boton-seleccionado' : 'boton'}
+          className={tipoTemporal === 'Voluntariado' ? 'boton-seleccionado' : 'boton'}
           onClick={() => seleccionarTipo('Voluntariado')}
         >
           Voluntariado
         </button>
         <button
-          className={tipoSeleccionado === 'Local' ? 'boton-seleccionado' : 'boton'}
+          className={tipoTemporal === 'Local' ? 'boton-seleccionado' : 'boton'}
           onClick={() => seleccionarTipo('Local')}
         >
           Local

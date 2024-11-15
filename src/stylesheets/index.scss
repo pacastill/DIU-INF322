@@ -9,6 +9,10 @@
 @import './map/index.scss';
 @import './caratulas/index.scss';
 
+
+
+
+
 html, body {
   padding: 0;
   margin: 0;
@@ -52,13 +56,17 @@ html, body {
 }
 
 .card-detail button {
-  padding: 10px;
-  background-color: #4CAF50;
-  color: white;
-  border: none;
-  cursor: pointer;
+  width: 20%;
+    padding: 8px 0;
+    background-color: #6b46c1;
+    color: white;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 .card-detail button:hover {
-  background-color: #45a049;
+  background-color: #553c9a;
 }

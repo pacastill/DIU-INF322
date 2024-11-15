@@ -13,7 +13,8 @@ const Detalle = () => {
   const datos = datosPrueba.find((acc) => acc.id === parseInt(id));
   const total_donado = datos.alimento_donado + datos.bebestible_donado + datos.insumo_donado + datos.mano_donado + datos.vestuario_donado
   const total_solicitado = datos.alimento_solicitado + datos.bebestible_solicitado + datos.insumo_solicitado + datos.mano_solicitado + datos.vestuario_solicitado
-  const porcentage = (total_donado / total_solicitado) * 100
+  const percentage = parseInt((total_donado / total_solicitado) * 100, 10);
+  console.log(total_donado, total_solicitado, percentage)
   const googleMapsLink = `https://www.google.com/maps?q=${datos.lat},${datos.lng}`;
 
   if (!datos) {
@@ -27,6 +28,18 @@ const Detalle = () => {
           <span className="initial-icon">{datos.comunidad.charAt(0)}</span>
         </div>
         <h2 className="location-name">{datos.comunidad} </h2>
+        {/* Condicional para mostrar el botón Actualizar solo si el encargado es "Tito" */}
+        {datos.encargado === "Tito" && (
+          <button
+            onClick={() => navigate(`/actualizar-peticion/${id}`, {
+              state: {
+                ...datos  // Esto incluye todas las propiedades de 'datos' en el objeto 'state'
+              }
+            })}
+          >
+            Actualizar
+          </button>
+        )}
       </div>
 
       {//Contenedor de la imagen
@@ -75,16 +88,16 @@ const Detalle = () => {
         {/* Barra de progreso */}
         <div className="volunteer-progress">
           <img src={tiposIcon[datos.tipo]} className="worker-icon" />
-          <span className="progress-text">{porcentage} %</span>
+          <span className="progress-text">{percentage} %</span>
           <div className="progress-bar">
-            <div className="progress-bar-fill" style={{ width: `${porcentage}%` }}></div>
+            <div className="progress-bar-fill" style={{ width: `${percentage}%` }}></div>
           </div>
         </div>
 
         {/* Botones de volver y ayudar */}
         <div className="action-buttons">
           <button onClick={() => navigate(-1)} className="back-button">Volver</button>
-          <button onClick={() => navigate(`/enviar-ayuda`)} className="help-button">Aportar</button>
+          <button onClick={() => navigate(`/enviar-ayuda`, { state: { id } })} className="help-button">Aportar</button>
         </div>
       </div>
     </div>

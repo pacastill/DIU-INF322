@@ -8,19 +8,23 @@ const ActualizarPeticion = () => {
   const navigate = useNavigate();
   const { state } = useLocation(); // Recibe los datos de la solicitud a actualizar
   const { modificarDato } = useDatosPrueba(); // Asumiendo que tienes una función en el context para actualizar datos
-
+  //console.log("state",state)
   const [datoActualizado, setDatoActualizado] = useState({
     id: state?.id || '',
     title: state?.title || '',
     comunidad: state?.comunidad || '',
     encargado: state?.encargado || '',
-    description: state?.description || '',
     contacto: state?.contacto || '',
     direccion: state?.direccion || '',
+    alimento_donado: state?.alimento_donado || 0,
     alimento_solicitado: state?.alimento_solicitado || '',
+    bebestible_donado: state?.bebestible_donado || 0,
     bebestible_solicitado: state?.bebestible_solicitado || '',
+    insumo_donado: state?.insumo_donado || 0,
     insumo_solicitado: state?.insumo_solicitado || '',
+    mano_donado: state?.mano_donado || 0,
     mano_solicitado: state?.mano_solicitado || '',
+    vestuario_donado: state?.vestuario_donado || 0,
     vestuario_solicitado: state?.vestuario_solicitado || '',
     lat: state?.lat || 0,
     lng: state?.lng || 0,
@@ -52,7 +56,7 @@ const ActualizarPeticion = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Datos actualizados:', datoActualizado);  // Agregar consola para depuración
+    //console.log('Datos actualizados:', datoActualizado);  // Agregar consola para depuración
     modificarDato(datoActualizado.id,datoActualizado); // Asegúrate de que modificarDato esté bien implementada en el contexto
     navigate(`/detalle/${datoActualizado.id}`); // Redirige con el id correcto
   };
@@ -157,7 +161,7 @@ const ActualizarPeticion = () => {
         />
         <button type="button" onClick={handleBuscarDireccion}>Buscar Dirección</button>
         <div style={container_style}>
-          <MapPeticiones direccion={direccionParaBuscar} onCoordenadas={handleCoordenadas} />
+          <MapPeticiones initialPosition={{ lat: state.lat, lng: state.lng }} direccion={direccionParaBuscar} onCoordenadas={handleCoordenadas} />
         </div>
       </div>
     </div>
