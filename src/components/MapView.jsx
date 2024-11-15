@@ -33,7 +33,7 @@ const MapView = ({ direccion, onCoordenadas }) => {
     const AddLegend = () => {
         const map = useMap();
         useEffect(() => {
-            const legend = L.control({ position: 'bottomright' });
+            const legend = L.control({ position: 'bottomleft' });
 
             legend.onAdd = function () {
                 const div = L.DomUtil.create('div', 'info legend');

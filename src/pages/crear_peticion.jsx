@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import '../stylesheets/index.scss';
 import MapPeticiones from '../components/MapPeticiones';
 import { useDatosPrueba } from '../components/datosPrueba';
+import ConfirmModal from './confirmButton';
 
 
 const CrearPeticion = () => {
@@ -41,6 +42,10 @@ const CrearPeticion = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        setMostrarModal(true); 
+    };
+
+    const confirmarEnvio = () => {
         console.log('Formulario enviado', nuevoDato);
         agregarDato(nuevoDato);
         setNuevoDato({
@@ -57,6 +62,15 @@ const CrearPeticion = () => {
             lng: 0,
         });
         navigate('/caratulas');
+
+
+        setMostrarModal(false); // Oculta la modal
+    };
+
+    const [mostrarModal, setMostrarModal] = useState(false);
+
+    const cancelarEnvio = () => {
+        setMostrarModal(false); // Cierra la modal sin enviar
     };
 
     //Pali
@@ -127,6 +141,13 @@ const CrearPeticion = () => {
                     <MapPeticiones direccion={direccionParaBuscar} onCoordenadas={handleCoordenadas} />  {/* Pasa `handleCoordenadas` */}
                 </div>
             </div>
+
+            {mostrarModal && (
+                <ConfirmModal
+                    mensaje="¿Está seguro de que desea enviar la solicitud?"
+                    onConfirm={confirmarEnvio}
+                    onCancel={cancelarEnvio}
+                />)}
 
         </div>
     );

@@ -3,7 +3,7 @@
     border-radius: 20px;
     overflow: hidden;
     width: 250px;
-    margin: 5px auto;
+    margin: auto 5px;
 }
 
 .boton {
@@ -30,7 +30,7 @@
 
 .floating-button {
     position: absolute; 
-    top: 40px;
-    left: 20px;
+    top: 45px;
+    right: 20px;
     z-index: 1000; 
 }

@@ -13,7 +13,7 @@ const CaratulasPage = () => {
   const { datosPrueba } = useDatosPrueba();
 
   return (
-    <div className="caratulas-page" style={{ marginTop: '60px' }}>
+    <div className="caratulas-page" style={{ marginTop: '50px' }}>
       
       {datosPrueba.map((card, index) => (
         <Caratula

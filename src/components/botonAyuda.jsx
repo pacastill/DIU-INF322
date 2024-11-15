@@ -10,7 +10,7 @@ const BotonAyuda = () => {
 
     return (
     <div className="help-button-container">
-      <button className="help-button">
+      <button className="help-button2">
         ?
       </button>
       <div className="tooltip">

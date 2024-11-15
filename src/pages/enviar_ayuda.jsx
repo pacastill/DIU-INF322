@@ -40,7 +40,7 @@ const EnviarAyuda = () => {
                 {/* Botones en la parte inferior */}
                 <div className="button-container">
                     <button type='cancel' onClick={() => navigate(-1)} className="cancel-button">Cancelar</button>
-                    <button type="submit" className="submit-button">Enviar ayuda</button>
+                    <button type="submit" className="submit-button">Aportar</button>
                 </div>
             </form>
             <div className="map-container">

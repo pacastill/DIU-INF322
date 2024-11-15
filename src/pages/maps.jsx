@@ -7,7 +7,7 @@ import MapContainerWithSidebar from '../components/MapContainerWithSidebar';
 const MapPage = () => {
   return (
     <div>
-      <MapContainerWithSidebar/>
+      <MapView/>
     </div>
   );
 };
