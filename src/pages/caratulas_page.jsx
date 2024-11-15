@@ -1,6 +1,7 @@
 import React from 'react';
 import Caratula from '../components/caratula.jsx';
 import BotonIntercambio from '../components/botonIntercambio.jsx';
+import BotonFiltro from '../components/botonFiltro.jsx';
 import { useDatosPrueba } from '../components/datosPrueba.jsx';
 import '../stylesheets/index.scss';
 import imagesSrc from '../assets/images';

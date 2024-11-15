@@ -1,5 +1,6 @@
 import React from 'react';
 import Caratula from '../components/mis_caratulas.jsx';
+import BotonFiltro from '../components/botonFiltro.jsx';
 
 // Arreglo con datos de ejemplo
 import { useDatosPrueba } from '../components/datosPrueba.jsx'
@@ -14,7 +15,8 @@ const CaratulasPage = () => {
   const encargado = "Tito";
 
   return (
-    <div className="caratulas-page">
+    
+    <div className="caratulas-page" style={{ marginTop: '50px' }}>
       {datosPrueba.filter((card) => card.encargado === encargado).map((card, index) => (
         <Caratula
           key={index}

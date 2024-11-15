@@ -1,6 +1,6 @@
 // HelpButton.js
 import React from 'react';
-import './botonAyuda.scss';
+import '../stylesheets/index.scss';
 
 import roja from '../assets/roja.png';
 import amarillo from '../assets/amarilla.png';

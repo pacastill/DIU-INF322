@@ -1,6 +1,7 @@
 import React from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import './botonIntercambio.scss';
+
+import '../stylesheets/index.scss';
 
 const BotonIntercambio = () => {
     const location = useLocation();

@@ -3,6 +3,7 @@ import { NavLink, useLocation } from 'react-router-dom';
 import { useUser } from './UserContext';  // Importa el contexto
 import '../stylesheets/index.scss';
 import BotonIntercambio from '../components/botonIntercambio';
+import BotonFiltro from './botonFiltro';
 import BotonAyuda from './botonAyuda';
 
 export const NavBar = () => {
@@ -29,9 +30,9 @@ export const NavBar = () => {
             Peticiones
           </NavLink>
 
-          <NavLink className={navLinkClass} to='/mis-caratulas'>
+          {/*<NavLink className={navLinkClass} to='/mis-caratulas'>
             Mis Peticiones
-          </NavLink>
+          </NavLink>*/}
 
           {/* Solo muestra el enlace "Crear Petición" si el tipo de usuario es "Local" */}
           {tipoSeleccionado === 'Local' && (
@@ -44,8 +45,11 @@ export const NavBar = () => {
 
       {/* Mostrar botones condicionalmente en base a la ruta */}
       {(location.pathname === '/maps' || location.pathname === '/caratulas') && <BotonIntercambio />}
+      
 
-      {location.pathname === '/maps' && <BotonAyuda />}
+      {tipoSeleccionado === 'Local' && (location.pathname === '/caratulas' || location.pathname ==='/mis-caratulas') && <BotonFiltro />}
+      {/*{location.pathname === '/maps' && <BotonAyuda />}*/}
+
     </nav>
   );
 };

@@ -1,0 +1,31 @@
+
+.boton-filter {
+    flex: 1;
+    padding: 8px;
+    border: none;
+    background-color: white;
+    color: #333;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    border-radius: 15px;
+}
+
+.boton-seleccionado-filter {
+    flex: 1;
+    padding: 8px;
+    border: none;
+    background-color: #5c4a82;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 15px;
+}
+
+
+.floating-button-filter {
+    position: fixed; 
+    top: 60px;
+    left: 20px;
+    z-index: 1000; 
+}

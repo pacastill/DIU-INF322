@@ -39,9 +39,9 @@ const MapView = ({ direccion, onCoordenadas }) => {
                 const div = L.DomUtil.create('div', 'info legend');
                 div.innerHTML = `
 
-                    <img src="${roja}" alt="Roja Icon" style="width: 20px; height: 20px;"/> Se necesita mucha ayuda<br>
-                    <img src="${amarillo}" alt="Amarillo Icon" style="width: 20px; height: 20px;"/> Aun falta ayuda<br>
-                    <img src="${verde}" alt="Verde Icon" style="width: 20px; height: 20px;"/> Ayuda casi Completada <br>
+                    <img src="${roja}" alt="Roja Icon" style="width: 20px; height: 20px;"/> Alta Prioridad (Ayuda urgente) <br>
+                    <img src="${amarillo}" alt="Amarillo Icon" style="width: 20px; height: 20px;"/> Prioridad Media (Aun falta ayuda) <br>
+                    <img src="${verde}" alt="Verde Icon" style="width: 20px; height: 20px;"/> Baja prioridad (Ayuda casi completada) <br>
                 `;
                 return div;
             };
