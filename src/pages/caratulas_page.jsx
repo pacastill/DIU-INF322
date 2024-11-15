@@ -1,15 +1,13 @@
 import React from 'react';
 import Caratula from '../components/caratula.jsx';
 import BotonIntercambio from '../components/botonIntercambio.jsx';
-
-// Arreglo con datos de ejemplo
-import { useDatosPrueba } from '../components/datosPrueba.jsx'
+import { useDatosPrueba } from '../components/datosPrueba.jsx';
 
 import imagesSrc from '../assets/images';
 import tiposIcon from '../assets/tipos';
+import defaultImage from '../assets/images/id3.jpg'; // Importa la imagen por defecto
 
 const CaratulasPage = () => {
-
   const { datosPrueba } = useDatosPrueba();
 
   return (
@@ -24,7 +22,7 @@ const CaratulasPage = () => {
           donado={card.donado}
           solicitado={card.solicitado}
           description={card.description}
-          imageUrl={imagesSrc[card.id]}
+          imageUrl={imagesSrc[card.id] || defaultImage} // Usa la imagen por defecto si no existe una específica
           tipo={card.tipo}
           imagenTipo={tiposIcon[card.tipo]}
         />

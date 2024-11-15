@@ -7,27 +7,30 @@ import ConfirmModal from './confirmButton';
 
 
 const CrearPeticion = () => {
-    // Marti
     const navigate = useNavigate();
     const { agregarDato } = useDatosPrueba();
     const [nuevoDato, setNuevoDato] = useState({
-        id: '', // Agrega un campo `id`
+        id: '',
         title: '',
         comunidad: '',
         encargado: '',
         contacto: '',
         direccion: '',
-        tipo: '',
-        donado: 0,
-        solicitado: 0,
-        description: '',
+        alimento_donado: 0,
+        alimento_solicitado: '',
+        bebestible_donado: 0,
+        bebestible_solicitado: '',
+        insumo_donado: 0,
+        insumo_solicitado: '',
+        mano_donado: 0,
+        mano_solicitado: '',
+        vestuario_donado: 0,
+        vestuario_solicitado: '',
         lat: 0,
         lng: 0,
     });
-    
 
     const handleCoordenadas = (coords) => {
-        console.log("Coordenadas recibidas:", coords);
         setNuevoDato((prev) => ({
             ...prev,
             lat: coords.lat,
@@ -37,7 +40,18 @@ const CrearPeticion = () => {
 
     const handleChange = (e) => {
         const { name, value } = e.target;
-        setNuevoDato((prevDato) => ({ ...prevDato, [name]: value }));
+        const camposNumericos = [
+            "alimento_solicitado",
+            "bebestible_solicitado",
+            "insumo_solicitado",
+            "mano_solicitado",
+            "vestuario_solicitado",
+        ];
+    
+        setNuevoDato((prevDato) => ({
+            ...prevDato,
+            [name]: camposNumericos.includes(name) ? parseInt(value, 10) || 0 : value,
+        }));
     };
 
     const handleSubmit = (e) => {
@@ -48,19 +62,6 @@ const CrearPeticion = () => {
     const confirmarEnvio = () => {
         console.log('Formulario enviado', nuevoDato);
         agregarDato(nuevoDato);
-        setNuevoDato({
-            title: '',
-            comunidad: '',
-            encargado: '',
-            contacto: '',
-            direccion: '',
-            tipo: '',
-            donado: 0,
-            solicitado: 0,
-            description: '',
-            lat: 0,
-            lng: 0,
-        });
         navigate('/caratulas');
 
 
@@ -82,7 +83,7 @@ const CrearPeticion = () => {
     };
 
     const handleBuscarDireccion = () => {
-        setDireccionParaBuscar(direccion);  // Actualiza la dirección para buscar en el mapa
+        setDireccionParaBuscar(direccion);
     };
 
     return (
@@ -96,19 +97,54 @@ const CrearPeticion = () => {
                     <label style={{ textAlign: 'right', fontStyle: 'italic' }}>Cantidad</label>
 
                     <span>Alimentos no perecibles</span>
-                    <input className="input-field" type="number" placeholder="Kilogramos [KG]" />
+                    <input
+                        className="input-field"
+                        name="alimento_solicitado"
+                        type="number"
+                        placeholder="Kilogramos [KG]"
+                        value={nuevoDato.alimento_solicitado}
+                        onChange={handleChange}
+                    />
 
                     <span>Bebestibles</span>
-                    <input className="input-field" type="number" placeholder="Litros [L]" />
+                    <input
+                        className="input-field"
+                        name="bebestible_solicitado"
+                        type="number"
+                        placeholder="Litros [L]"
+                        value={nuevoDato.bebestible_solicitado}
+                        onChange={handleChange}
+                    />
 
                     <span>Insumos médicos</span>
-                    <input className="input-field" type="number" placeholder="Kits médicos" />
+                    <input
+                        className="input-field"
+                        name="insumo_solicitado"
+                        type="number"
+                        placeholder="Kits médicos"
+                        value={nuevoDato.insumo_solicitado}
+                        onChange={handleChange}
+                    />
 
                     <span>Mano de obra</span>
-                    <input className="input-field" type="number" placeholder="Personas" />
+                    <input
+                        className="input-field"
+                        name="mano_solicitado"
+                        type="number"
+                        placeholder="Personas"
+                        value={nuevoDato.mano_solicitado}
+                        onChange={handleChange}
+                    />
 
                     <span>Vestuario</span>
-                    <input className="input-field" type="number" placeholder="Prendas" />
+                    <input
+                        className="input-field"
+                        name="vestuario_solicitado"
+                        type="number"
+                        placeholder="Prendas"
+                        value={nuevoDato.vestuario_solicitado}
+                        onChange={handleChange}
+                    />
                 </div>
 
                 <label style={{ fontWeight: 'bold' }}>Organización o comunidad</label>
@@ -122,23 +158,20 @@ const CrearPeticion = () => {
 
                 <label style={{ fontWeight: 'bold' }}>Descripción</label>
                 <textarea name="description" value={nuevoDato.description} onChange={handleChange} placeholder="Describa lo que necesita"></textarea>
-                {/*Aki taba el forms antes*/}
 
                 <button type="submit" className="submit-button">Enviar</button>
             </form>
-            {/*Dirección es parte del forms, pero visualmente queda abajo (solución parcial en caso de no lograr moverlo donde estaba inicialmente y q siga siendo parte del forms)*/}
             <div className='formulario'>
                 <label style={{ fontWeight: 'bold' }}>Dirección</label>
                 <input
                     type="text"
                     placeholder="Ingrese dirección"
                     value={direccion}
-                    onChange={handleDireccionChange}  // Actualiza el estado de dirección
-                //value={nuevoDato.direccion} onChange={handleChange}
+                    onChange={handleDireccionChange}
                 />
-                <button type="button" onClick={handleBuscarDireccion}>Buscar Dirección</button> {/* Botón específico para búsqueda */}
+                <button type="button" onClick={handleBuscarDireccion}>Buscar Dirección</button>
                 <div style={container_style}>
-                    <MapPeticiones direccion={direccionParaBuscar} onCoordenadas={handleCoordenadas} />  {/* Pasa `handleCoordenadas` */}
+                    <MapPeticiones direccion={direccionParaBuscar} onCoordenadas={handleCoordenadas} />
                 </div>
             </div>
 

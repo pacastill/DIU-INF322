@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 
 import '../stylesheets/index.scss';
 
-const Caratula = ({ id, title, comunidad, donado, solicitado, description, imageUrl, tipo, imagenTipo }) => {
+const Caratula = ({ id, title, comunidad, alimento_donado, alimento_solicitado, description, imageUrl, tipo, imagenTipo }) => {
   const navigate = useNavigate()
   return (
     <div className="card-container">
@@ -36,9 +36,9 @@ const Caratula = ({ id, title, comunidad, donado, solicitado, description, image
       <div className="card-content">
         <div className="principal-title">
           <div><h3 className="card-task-title">{title}</h3>
-              <p className="card-status">{donado}/{solicitado}</p>
+              {/* <p className="card-status">{alimento_donado}/{alimento_solicitado}</p> */}
           </div>
-          <img src={imagenTipo} alt={tipo} className="tipo-icon" />
+          {/* <img src={imagenTipo} alt={tipo} className="tipo-icon" /> */}
         </div>
         <p className="card-description">{description}</p>
       </div>

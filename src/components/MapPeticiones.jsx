@@ -4,7 +4,7 @@ import "leaflet/dist/leaflet.css";
 import { rojaIcon } from "./Icons";
 
 const MapView = ({ direccion, onCoordenadas, initialPosition }) => {
-  console.log("AAAAAA",initialPosition)
+  //console.log("AAAAAA",initialPosition)
   const [position, setPosition] = useState(initialPosition || { lat: -33.0386458, lng: -71.5811897 }); // Usa `initialPosition` si está disponible
 
   const MoveMapToLocation = ({ position }) => {
